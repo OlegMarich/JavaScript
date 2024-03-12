@@ -236,15 +236,140 @@ const questions = [
 		id: 5.3_15,
 		question: "З клавіатури вводиться пароль поки не буде вірним (правильний пароль 123)",
 		checkFunction: function () {
-			//const 
-			//let userPass = parseInt(prompt('Введіть пароль'))
 			let password
 			do {
 				password = prompt('Введіть пароль')
 			} while (password !== '123')
-
 		}
 		//document.write(`Correct: ${correctAnswerNum}`)
+		//alert(resultMessage)
+	},
+	{
+		id: 5.3_16,
+		question: "Оленка має 0 грн. і хоче назбирати на телефон (10000 грн.). Для цього кожного разу допомагає мамі і отримує гонорар - випадкова величина від 1 до 200 грн. Підрахувати скільки разів треба допомагати Оленці поки не назбирає на телефон.",
+		checkFunction: function () {
+			let money = 0
+			do {
+				alert(`В мене є ${money}. Що потрібно зробити?`)
+				const mothersMoney = 1 + Math.floor(Math.random() * 2000)
+				money += mothersMoney
+			} while (money < 10000);
+			document.write('Вітаємо!')
+		}
+		//document.write(`Correct: ${correctAnswerNum}`)
+		//alert(resultMessage)
+	},
+	{
+		id: 5.3_17,
+		question: "Оленка має М грн. (вводиться з клавіатури) і хоче назбирати на телефон (10000 грн.). Для цього кожного разу допомагає мамі і отримує гонорар - випадкова величина від 1 до 200 грн. Підрахувати скільки разів треба допомагати Оленці поки не назбирає на телефон.",
+		checkFunction: function () {
+			let money = parseFloat(prompt('Скільки ти вже маєш зібрано'))
+			while (money < 10000) {
+				alert(`В мене є ${money}. Що потрібно зробити?`)
+				const mothersMoney = 1 + Math.floor(Math.random() * 2000)
+				money += mothersMoney
+			}
+			document.write('Вітаємо!')
+		}
+		//document.write(`Correct: ${correctAnswerNum}`)
+		//alert(resultMessage)
+	},
+	{
+		id: 5.3_18,
+		question: "Поступово вводити 10 цілих чисел і знайти їх суму. Якщо буде введено некоректне число, то припинити знаходження суми",
+		checkFunction: function () {
+			let sum = 0
+			for (let i = 0; i < 10; i++) {
+				const num = parseInt(prompt('num'))
+				if (!isFinite(num)) break
+				sum += num
+			}
+			document.write(`Sum = ${sum}`)
+		}
+		//alert(resultMessage)
+	},
+	{
+		id: 5.3_19,
+		question: "3 рази дати можливість ввести пароль(правильний пароль '123')",
+		checkFunction: function () {
+			let password
+			for (let i = 0; i < 3; i++) {
+				password = prompt('Пароль = ')
+				if (password === '123') break
+			}
+			if (password === '123')
+				alert('Вітаємо!')
+			else
+				alert('Доступ заборонено')
+
+			//document.write(`Пароль = ${password}`)
+		}
+		//alert(resultMessage)
+	},
+	//==================================================================
+	{
+		id: 5.3_21,
+		question: "Користувач кожного дня протягом 3 тижнів купляв товар за ціною, що могла змінюватись щодня. Знайти скільки всього заплатив користувач. Якщо користувач припиняє введення (натиснув на «Відміна» під час введення), товивести поточну суму і припинити сумування.",
+		checkFunction: function () {
+			let sum = 0
+			weekLoop: for (let weekNum = 1; weekNum <= 3; weekNum++) {
+				for (let dayNum = 1; dayNum <= 7; dayNum++) {
+					let price = parseFloat(prompt(`Week ${weekNum} Day ${dayNum}`))
+					if (!isFinite(price)) break weekLoop
+					sum += price
+				}
+			}
+			document.write(`Сума = ${sum}`)
+		}
+		//alert(resultMessage)
+	},
+	//======================================================
+	{
+		id: 5.3_22,
+		question: "поступово вітаємо 20 користувачів поки не прийде Іван",
+		checkFunction: function () {
+			for (let i = 0; i < 20; i++) {
+				const userName = prompt('Name ')
+				alert(`Вітаємо ${userName}`)
+				if (userName === 'Іван') break
+			}
+			//document.write(`Сума = ${sum}`)
+		}
+		//alert(resultMessage)
+	},
+	{
+		id: 5.3_23,
+		question: "поступово вітаємо 5 користувачів, але Іванів не вітаємо",
+		checkFunction: function () {
+			for (let i = 0; i < 5; i++) {
+				const userName = prompt('Name ')
+				if (userName === 'Іван') continue
+				alert(`Вітаємо ${userName}`)
+			}
+			//document.write(`Сума = ${sum}`)
+		}
+		//alert(resultMessage)
+	},
+	{
+		id: 5.3_24,
+		question: "Поаступово вітаємо учнів з 3-х класів (по 20 учнів у класі) поки не зустрінемо Івана. Якщо зустріли Івана, то переходимо до наступного класу",
+		checkFunction: function () {
+			// for (let classNum = 1; classNum <= 3; classNum++) {
+			// 	for (let pupilNum = 1; pupilNum <= 20; pupilNum++) {
+			// 		const userName = prompt(`Class ${classNum}, pupil ${pupilNum}`)
+			// 		alert(`Вітаємо ${userName}`)
+			// 		if (userName === 'Іван') break
+			// 	}
+			// }
+			classLabel: for (let classNum = 1; classNum <= 3; classNum++) {
+				for (let pupilNum = 1; pupilNum <= 20; pupilNum++) {
+					const userName = prompt(`Class ${classNum}, pupil ${pupilNum}`)
+					alert(`Вітаємо ${userName}`)
+					if (userName === 'Іван') continue classLabel
+				}
+			}
+			//document.write(`Сума = ${sum}`)
+		}
 		//alert(resultMessage)
 	},
 ];

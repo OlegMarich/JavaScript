@@ -30,6 +30,14 @@ body {
 }
 
 /* ================== */
+.page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .page__lessons {
   display: grid;
   grid-template-columns: repeat(4, auto);
@@ -71,14 +79,6 @@ body {
 
 /* =============================== */
 
-.page {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 .page__lesson {
 }
 
@@ -89,16 +89,6 @@ body {
 }
 
 .lesson-page__content {
- 
-}
-
-.lesson-page__content {
-  @media (max-width: 767.98px) {
-    grid-template-columns: repeat(2, auto);
-  }
-  @media (max-width: 420px) {
-    grid-template-columns: auto;
-  }
 }
 
 .lesson-page__questions {
@@ -145,7 +135,7 @@ body {
 
 .item {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   column-gap: 15px;
   row-gap: 5px;
 }
@@ -155,7 +145,7 @@ body {
 }
 .item {
   @media (max-width: 767.98px) {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(3, auto);
   }
   @media (max-width: 420px) {
     grid-template-columns: auto;
