@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:regular,700,900&display=swap");
+
+body {
+  /* Значення за замовченням */
+  font-family: "Lato";
+  color: #424551;
+  color: #424551;
+  background-color: #f0f0f0;
+  font-size: 16px;
+}
+
+.wrapper {
+  overflow: hidden;
+  min-height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper > main {
+  flex-grow: 1;
+}
+
+/* =========================== */
+
+.header {
+}
+
+.footer {
+}
+
+/* ================== */
+.page__lessons {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 20px;
+}
+
+.lessons {
+}
+
+.lessons__container {
+}
+
+.lessons__content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 15px;
+  row-gap: 5px;
+  @media (max-width: 767.98px) {
+    grid-template-columns: repeat(2, auto);
+  }
+  @media (max-width: 420px) {
+    grid-template-columns: auto;
+  }
+}
+
+.lesson__link {
+  display: inline-block;
+  margin: 5px;
+  background-color: #5a5a5a;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 38px;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================== */
+
+.page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.page__lesson {
+}
+
+.lesson-page {
+}
+
+.lesson-page__container {
+}
+
+.lesson-page__content {
+ 
+}
+
+.lesson-page__content {
+  @media (max-width: 767.98px) {
+    grid-template-columns: repeat(2, auto);
+  }
+  @media (max-width: 420px) {
+    grid-template-columns: auto;
+  }
+}
+
+.lesson-page__questions {
+  display: grid;
+}
+
+.title {
+  font-family: 'Lato', sans-serif;
+  display: inline-block;
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.lesson-page__items {
+}
+
+.lessons-page__ansver,
+.item__btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.lessons-page__ansver {
+  margin-top: 30px;
+}
+
+.lesson-page__btn:hover {
+  background-color: #45a049;
+}
+
+.lesson-page__btn:active {
+  background-color: #367a38;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 15px;
+  row-gap: 5px;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 30px;
+}
+.item {
+  @media (max-width: 767.98px) {
+    grid-template-columns: repeat(2, auto);
+  }
+  @media (max-width: 420px) {
+    grid-template-columns: auto;
+  }
+}
