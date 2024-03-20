@@ -1,6 +1,6 @@
 const questions = [
 	{
-		id: 1,
+		id: 8,
 		question: "З клавіатури вводиться номер дня тижня (від 1 до 7). Визначити який буде тижня через N днів.",
 		checkFunction: function () {
 			const currentDayNum = parseInt(prompt('Current day'))
@@ -12,7 +12,7 @@ const questions = [
 		}
 	},
 	{
-		id: 2,
+		id: 9,
 		question: "Зашифрувати один введений англійський символ у верхньому регістрі методом зміщення",
 		checkFunction: function () {
 			//newValve = (curentValve - min + N) % (max - min + 1) + min
@@ -27,7 +27,7 @@ const questions = [
 		}
 	},
 	{
-		id: 3,
+		id: 10,
 		question: "З клавіатури вводиться орендна плата за місяць. Визначити на скільки місяців вистачить вказаної суми грошей, а також скільки повних років",
 		checkFunction: function () {
 			const rentPerMonth = parseFloat(prompt('Введіть оренду за місяць'))
@@ -40,7 +40,7 @@ const questions = [
 		}
 	},
 	{
-		id: 5,
+		id: 11,
 		question: "Потрібно перевести N учнів у автобусах з M місцями. Визначити скільки потрібно автобусів",
 		checkFunction: function () {
 			const puplesNumber = parseInt(prompt('Кількість учнів'))
@@ -52,7 +52,7 @@ const questions = [
 		}
 	},
 	{
-		id: 4,
+		id: 12,
 		question: "Цв'ях довжиною L забивають в дошку. За один удар цв'ях заглиблюється на в дерево на K мм. За скільки ударів цв'ях забють в дошку",
 		checkFunction: function () {
 			const nailLenth = parseFloat(prompt('Довжина цв’яху в сантиметрах'))
@@ -64,7 +64,7 @@ const questions = [
 		}
 	},
 	{
-		id: 6,
+		id: 13,
 		question: "Вводиться кількість місяців. Вивести кількість повних років і місяців",
 		checkFunction: function () {
 			const totalMonth = parseInt(prompt('Введіть повну кількість місяців'))
@@ -76,7 +76,7 @@ const questions = [
 		}
 	},
 	{
-		id: 7,
+		id: 14,
 		question: "Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби",
 		checkFunction: function () {
 			//const randNum = min + Math.floor(Math.random()*(max - min + 1))
@@ -95,7 +95,7 @@ const questions = [
 		}
 	},
 	{
-		id: 8,
+		id: 15,
 		question: "З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше,	якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.",
 		checkFunction: function () {
 			const userMoney = parseFloat(prompt('Кільлкість грошей користувача'))
@@ -115,7 +115,7 @@ const questions = [
 
 	},
 	{
-		id: 9,
+		id: 16,
 		question: "З клавіатури вводиться вік людини. Вивести на екран ким він є (дитиною у садочку, школярем, студентом, працівником, пенсіонером).",
 		checkFunction: function () {
 			const userAge = parseInt(prompt('Введіть вік'))
@@ -134,7 +134,7 @@ const questions = [
 		}
 	},
 	{
-		id: 10,
+		id: 17,
 		question: "З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). Вивести на	екран назву транспортного засобу, яким він може керувати. (Мова введення Англійська)",
 		checkFunction: function () {
 			const category = prompt('Категорія')
@@ -155,7 +155,7 @@ const questions = [
 		}
 	},
 	{
-		id: 11,
+		id: 18,
 		question: "Вводиться назва фреймворку 'Vue', 'React', 'Express'. Вивести для який цілей вони використовуються",
 		checkFunction: function () {
 			const frameworkTitle = prompt('Введіть назву фреймворку')
@@ -176,7 +176,7 @@ const questions = [
 		}
 	},
 	{
-		id: 12,
+		id: 19,
 		question: "Вводиться тип користувача",
 		checkFunction: function () {
 			const userType = prompt('Введіть тип користувача')
@@ -198,7 +198,7 @@ const questions = [
 		}
 	},
 	{
-		id: 13,
+		id: 20,
 		question: "Знайти найбільше серед трьох",
 		checkFunction: function () {
 			// (1)
@@ -257,7 +257,7 @@ const questions = [
 		}
 	},
 	{
-		id: 14,
+		id: 21,
 		question: "Вправи з числами",
 		checkFunction: function () {
 			//Задано 3 числа. Знайти найменше серед додатних(>0)
@@ -274,7 +274,7 @@ const questions = [
 		}
 	},
 	{
-		id: 15,
+		id: 22,
 		question: "Вправи з числами",
 		checkFunction: function () {
 			//Знайти найбільше з двох чисел
