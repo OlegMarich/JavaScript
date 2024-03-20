@@ -6,6 +6,7 @@ body {
   color: #424551;
   background-color: #f0f0f0;
   font-size: 16px;
+  padding: 15px;
 }
 
 .wrapper {
@@ -35,10 +36,8 @@ body {
   align-items: center;
   text-align: center;
 }
-
 .page__lessons {
 }
-
 .lessons__content {
 }
 
@@ -58,9 +57,6 @@ body {
 
 /* ============================================= */
 .page__lesson {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  gap: 20px;
 }
 .lesson-page {
 }
@@ -70,6 +66,7 @@ body {
 }
 .lesson-page__questions {
   display: grid;
+  justify-items: center;
 }
 .lesson-page__title {
 }
@@ -96,16 +93,19 @@ body {
 }
 .item {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 15px;
   row-gap: 5px;
+  padding: 15px;
+
   @media (max-width: 767.98px) {
     grid-template-columns: repeat(3, auto);
   }
   @media (max-width: 420px) {
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
   }
 }
+
 .item:not(:last-child) {
   margin-bottom: 30px;
 }
@@ -128,6 +128,26 @@ body {
 
 .lesson-page__btn:active {
   background-color: #0011c8;
+}
+
+.item__body {
+  display: grid;
+  justify-self: center;
+  padding: 15px;
+  gap: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.item__text {
+  font-size: 18px;
+  line-height: 1.3;
+}
+.item__label {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.item__btn {
 }
 
 .lesson-page__add {

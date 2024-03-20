@@ -23,23 +23,54 @@ const questions = [
 	//========================================
 	{
 		id: 5.3_1,
-		question: "",
+		question: "Задача 11. Знайти суму 5 непарних випадкових чисел, що знаходяться між заданими користувачем числами.",
 		checkFunction: function () {
-			for (let i = 0; i <= 5; i++) {
-				let num1 = parseInt(prompt("Num1="))
-				let num2 = parseInt(prompt("Num2="))
-				if (num1 === num2) {
-					document.write(`Sum=${num1 + num2} </br>`)
-				} else {
-					let product = num1 * num2
-					document.write(`Prod = ${product} </br>`)
+			//sum
+			//firstUserNumber, secondUserNumber
+			//oddnumber
+			let firstUserNumber = parseInt(prompt('First'))
+			let secondUserNumber = parseInt(prompt('Second'))
+			if (firstUserNumber > secondUserNumber) {
+				let temp = firstUserNumber
+				firstUserNumber = secondUserNumber
+				secondUserNumber = temp
+			}
+			let oddnumber = 0
+			let sum = 0
+
+			let startNum
+			if ((firstUserNumber + 1) % 2 === 1) startNum = firstUserNumber + 1
+			else startNum = firstUserNumber + 2
+
+			for (let num = startNum; num < secondUserNumber; num += 2) {
+				if (num % 2 !== 0) {
+					sum += num
+					oddnumber++
+					if (oddnumber === 5) break
 				}
 			}
+			//alert(`Sum : ${sum}`)
+			document.write(`Sum : ${sum}`)
+		}
+	},
+	{
+		id: 5.3_2,
+		question: "",
+		checkFunction: function () {
+
 			//alert(resultMessage)
 			//document.write(`Років : ${totalYear}`)
 		}
 	},
+	{
+		id: 5.3_2,
+		question: "",
+		checkFunction: function () {
 
+			//alert(resultMessage)
+			//document.write(`Років : ${totalYear}`)
+		}
+	},
 ];
 
 function showQuestion(questionId) {
