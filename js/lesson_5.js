@@ -1,26 +1,294 @@
 const questions = [
 	{
-		id: 5.1,
-		question: "",
+		id: 5.1_1,
+		question: "Задача 2. Створити 10 елементів для введення цін продуктів",
 		checkFunction: function () {
-
-
+			for (let productNum = 1; productNum <= 10; productNum++) {
+				document.write(`Product Num: <form><input type="text" name="Product Num" placeholder="Введіть ціну" class="input"></form>`)
+			}
 			//alert(resultMessage)
-			//document.getElementById('lessons-page__ansver').innerText = resultMessage;
 		}
 	},
-	// ======================================
 	{
-		id: 5.2,
-		question: "",
+		id: 5.1_2,
+		question: "Задача 1.Вивести з використанням циклів маркований список з випадковими числами. Кількість випадкових чисел вводиться користувачем.",
 		checkFunction: function () {
+			const MIN_RANDOM_VALVE = 1,
+				MAX_RANDOM_VALVE = 100
 
-
+			const requiredRandomNumber = parseInt(prompt('Введіть своє число'))
+			document.write(`<ul>`)
+			for (let i = 0; i < 4; i++) {
+				const randNumber =
+					MIN_RANDOM_VALVE +
+					Math.floor(Math.random() * (MAX_RANDOM_VALVE - MIN_RANDOM_VALVE + 1))
+				document.write(`<li>${randNumber}</li>`)
+			}
+			document.write(`</ul>`)
 			//alert(resultMessage)
 			//	document.write(`Років : ${totalYear}`)
 		}
 	},
+	{
+		id: 5.1_3,
+		question: " Задача 5. Вивести таблицю",
+		checkFunction: function () {
+			document.write('<table border="2px">')
+			let cellNum = 0
+			for (let row = 0; row < 3; row++) {
+				document.write('<tr>')
+				for (let cellNum = 1; cellNum <= 3; cellNum++) {
+					document.write(`<td> ${cellNum + row * 3}  </td>`)
+				}
+				document.write('</tr>')
+			}
+			document.write('</table>')
+			//alert(resultMessage)
+			//	document.write(`Років : ${totalYear}`)
+		}
+	},
+	{
+		id: 5.1_4,
+		question: "Задача 6. Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком",
+		checkFunction: function () {
+			document.write('<table border="2px">')
+			let cellNum = 0
+			for (let row = 0; row < 3; row++) {
+				document.write('<tr>')
+				for (let cellNum = 1; cellNum <= 3; cellNum++) {
+					document.write(`<td> ${cellNum + row * 3}  </td>`)
+				}
+				document.write('</tr>')
+			}
+			document.write('</table><br>')
 
+			document.write('<table border="2px">')
+			for (let row = 0; row < 3; row++) {
+				document.write('<tr>')
+				for (let cellNum = 4; cellNum <= 6; cellNum++) {
+					document.write(`<td> ${cellNum + row * 3}  </td>`)
+				}
+				document.write('</tr>')
+			}
+			document.write('</table><br>')
+			document.write('<table border="2px">')
+			for (let row = 0; row < 3; row++) {
+				document.write('<tr>')
+				for (let cellNum = 7; cellNum <= 9; cellNum++) {
+					document.write(`<td> ${cellNum + row * 3}  </td>`)
+				}
+				document.write('</tr>')
+			}
+			document.write('</table><br>')
+			//alert(resultMessage)
+			//document.write(`Років : ${totalYear}`)
+		}
+	},
+	{
+		id: 5.1_5,
+		question: "Задача -2. Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи непарних.",
+		checkFunction: function () {
+			let evenNumber = 0
+			let notEvenNumber = 0
+
+			for (let i = 0; i < 1000; i++) {
+				let randNumber = 1 + Math.floor(Math.random() * 1000)
+				//document.write(`${randNumber} <br>`)
+				if (randNumber % 2 === 0) {
+					evenNumber++	//"Парне";
+				} else {
+					notEvenNumber++ //"Непарне";
+				}
+			}
+			if (evenNumber > notEvenNumber) {
+				document.write(`Парних чисел більше, їх:${evenNumber} `)
+			} else (evenNumber < notEvenNumber)
+			document.write(`Непарних чисел більше, їх:${evenNumber} `)
+			//console.log(randNumber)
+			//document.write(`num`)
+		}
+	},
+	// ======================================
+	{
+		id: 5.2_1,
+		question: "Вивести на екран номери місяців весни і літа (від 3 до 8)",
+		checkFunction: function () {
+			const months = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень']
+			for (let month = 3; month <= 8; month++) {
+				document.write(`<div class="exampe__item">Місяць ${month}: ${months[month - 1]}</div>`)
+			}
+			//	document.write(`Років : ${totalYear}`)
+		}
+	},
+	{
+		id: 5.2_2,
+		question: "Задача 0. Вивести на екран 8 кнопок з написом “Hello”.",
+		checkFunction: function () {
+			for (let i = 0; i < 8; i++) {
+				document.write(`<button class="button">Hello!</button> <br>`)
+			}
+			//	document.write(`Років : ${totalYear}`)
+		}
+	},
+	{
+		id: 5.2_3,
+		question: "Задача 0. Вивести на екран 8 кнопок з написом “Hello”.",
+		checkFunction: function () {
+			document.write('<table border="2px">')
+			let cellNum = 0
+			for (let cellNum = 1; cellNum <= 7; cellNum++) {
+				document.write(`<td> ${cellNum}  </td>`)
+			}
+			document.write('</table>')
+			//alert(resultMessage)
+			//	document.write(`Років : ${totalYear}`)
+		}
+	},
+	{
+		id: 5.2_3,
+		question: "Задача 3. Вивести таблицю з одним рядком і  7 стовпцями.	",
+		checkFunction: function () {
+			document.write('<table border="2px">')
+			let cellNum = 0
+			for (let cellNum = 1; cellNum <= 7; cellNum++) {
+				document.write(`<td> ${cellNum}  </td>`)
+			}
+			document.write('</table>')
+			//alert(resultMessage)
+			//	document.write(`Років : ${totalYear}`)
+		}
+	},
+	{
+		id: 5.2_4,
+		question: "Задача 7. Вивести на екран N абзаців (N вводиться користувачем) за зразком:",
+		checkFunction: function () {
+
+			const n = parseInt(prompt('Введіть кількість абзаців'))
+
+			for (let paragraph = 1; paragraph === 1; paragraph++) {
+				let title = `<h2>Заголовок ${n}</h2>`
+				let section = n
+				document.write(`${title}`)
+				for (let paragraph = 1; paragraph <= n; paragraph++) {
+					let paragraf = `<p>розділ ${section}, параграф${paragraph}</p>`
+					document.write(`${paragraf}`)
+				}
+			}
+			//alert(resultMessage)
+			//document.write(`<h1>Заголовок</h1><br><p>розділ ${}, параграф${}</p><br>`)
+		}
+	},
+	{
+		id: 5.2_5,
+		question: "Задача 8. Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число користувача (використати confirm).",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть число'))
+			let attempts = 3
+			for (let attempt = 1; attempt <= attempts; attempt++) {
+				let guessNumber = 1 + Math.floor(Math.random())
+				if (userNumber === guessNumber) {
+					document.write(`Комп'ютер вгадав Ваше число! Воно: ${userNumber}`)
+				} else if (attempt === attempts)
+					document.write(`Комп'ютер не вгадав Ваше число! Воно: ${userNumber}`)
+			}
+			//alert(resultMessage)
+			//	document.write(`<h1>Заголовок</h1><br><p>розділ ${}, параграф${}</p><br>`)
+		}
+	},
+	{
+		id: 5.2_6,
+		question: "Задача 9. Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть число'))
+
+			for (let attempt = 1; attempt <= userNumber; attempt++) {
+				let guessNumber = 1 + Math.floor(Math.random() * 100)
+				document.write(`Ваше чило: ${guessNumber}? <br>`)
+				if (userNumber !== guessNumber) {
+					document.write(`Комп'ютер не вгадав Ваше число! Ваше чило: ${userNumber}! <br>`)
+				} else if (userNumber == guessNumber) {
+					document.write(`Компютер вгадав Ваше число!`)
+				}
+			}
+			document.write(`Ваше чило: ${userNumber}? <br> Компютер вгадав Ваше число! Гру завершено!`);
+			//alert(resultMessage)
+			//document.write(``)
+		}
+	},
+	{
+		id: 5.2_7,
+		question: "Задача 10. Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.",
+		checkFunction: function () {
+			let sum = 0
+
+			for (let i = 0; i < 10; i++) {
+				let userNumber = parseInt(prompt('Введіть довільне число.'))
+				if (userNumber % 2 === 0)
+					sum += userNumber
+			}
+			document.write(`Сума парних чисел:${sum} `)
+
+			//console.log(randNumber)
+			//document.write(`num`)
+		}
+	},
+	{
+		id: 5.2_8,
+		question: "Задача 11. Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.",
+		checkFunction: function () {
+			let sum = 0
+			let count = 0
+
+			while (count < 5) {
+				let userNumber = parseInt(prompt('Введіть довільне число.'))
+
+				if (userNumber % 2 !== 0) {
+					sum += userNumber
+					count++
+				}
+			}
+			document.write(`Сума 5 непарних чисел: ${sum} `)
+			//console.log(randNumber)
+			//document.write(`num`)
+		}
+	},
+	{
+		id: 5.2_9,
+		question: "Задача 15. Користувача поступово вводить показники температури протягом року. Знайти середню температуру.",
+		checkFunction: function () {
+			let sum = 0
+			let daysInYear = 365
+
+			for (let i = 0; i < daysInYear; i++) {
+				let dayTemperature = parseInt(prompt('Введіть показник температури для дня ' + (i + 1) + ':'))
+				sum += dayTemperature
+			}
+			let averageTemperature = sum / daysInYear
+			document.write(`Середня температура протягом року: ${averageTemperature} `)
+			//console.log(randNumber)
+			//document.write(`num`)
+		}
+	},
+	{
+		id: 5.2_11,
+		question: "Задача 14. Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей до тих пір, поки суми не буде достатньо для оплати товарів (кожного разу користувачу повідомляють, яку ще суму потрібно ввести). ",
+		checkFunction: function () {
+			let amountToPay = parseInt(prompt('Сума до сплати'))
+
+			while (amountToPay > 0) {
+				let amountPay = parseInt(prompt(`Вам потрібно сплатити ${amountToPay}. Яку суму сплачуємо?`))
+				amountToPay -= amountPay
+
+				if (amountToPay > 0) {
+					alert(`Вам залишилося сплатити ще ${amountToPay}`)
+				} else {
+					document.write('Вітаємо! Ви все оплатили!')
+				}
+			}
+		}
+			//console.log(randNumber)
+			//document.write(`num`)
+	},
 	//========================================
 	{
 		id: 5.3_1,
@@ -65,7 +333,6 @@ const questions = [
 		checkFunction: function () {
 			let totalPrice = 0
 			for (let num = 1; num < 7; num++) {
-				//const element = array[7];
 				const goodsPrice = parseInt(prompt(`Введіть вартість ${num} товару`))
 				totalPrice = totalPrice + goodsPrice
 			}
@@ -80,7 +347,7 @@ const questions = [
 		question: "Вивести номери місяців другого півріччя (номери місяців від 6 до 12)",
 		checkFunction: function () {
 			for (let month = 6; month <= 12; month++) {
-				document.write(`<div class="lesson-page__exampe example"><div class="exampe__item">Місяць ${month}</div></div>`);
+				document.write(`<div class="exampe__item">Місяць ${month}</div>`);
 			}
 		}
 		//alert(resultMessage)
@@ -92,7 +359,7 @@ const questions = [
 		checkFunction: function () {
 
 			for (let payment = 5000; payment <= 15000; payment += 2000) {
-				document.write(`<div> ${payment} </>`)
+				document.write(`<div> ${payment} </div>`)
 			}
 		}
 		//alert(resultMessage)		

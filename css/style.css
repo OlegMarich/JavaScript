@@ -4,7 +4,6 @@ body {
   /* Значення за замовченням */
   font-family: "Lato";
   color: #424551;
-  color: #424551;
   background-color: #f0f0f0;
   font-size: 16px;
 }
@@ -66,7 +65,7 @@ body {
 .lesson__link {
   display: inline-block;
   margin: 5px;
-  background-color: #5a5a5a;
+  background-color:  #0077c8;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -111,7 +110,7 @@ body {
   display: inline-block;
   padding: 10px 20px;
   margin: 5px;
-  background-color: #4caf50;
+  background-color:  #0077c8;
   color: white;
   border: none;
   border-radius: 5px;
@@ -126,11 +125,11 @@ body {
 }
 
 .lesson-page__btn:hover {
-  background-color: #45a049;
+  background-color: #0099c8;
 }
 
 .lesson-page__btn:active {
-  background-color: #367a38;
+  background-color:  #0011c8;
 }
 
 .item {
@@ -150,4 +149,10 @@ body {
   @media (max-width: 420px) {
     grid-template-columns: auto;
   }
+}
+
+.lessons__table {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 2px;
 }
