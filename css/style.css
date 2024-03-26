@@ -85,7 +85,7 @@ body {
   @media (max-width: 767.98px) {
     grid-template-columns: repeat(2, auto);
   }
-  @media (max-width: 420px) {
+  @media (max-width: 419.98px) {
     grid-template-columns: auto;
   }
 }
@@ -102,7 +102,7 @@ body {
   @media (max-width: 570.98px) {
     grid-template-columns: repeat(2, auto);
   }
-  @media (max-width: 420px) {
+  @media (max-width: 419.98px) {
     grid-template-columns: 1fr;
   }
 }
@@ -135,6 +135,7 @@ body {
   display: grid;
   justify-self: center;
   align-content: space-between;
+  width: 100%;
   padding: 15px;
   gap: 15px;
   background-color: #fff;

@@ -155,11 +155,21 @@ const questions = [
 	},
 	{
 		id: 5.3_7,
-		question: "",
+		question: "Задача 1.Поступово генеруються N чисел (-100 - 100). Знайти максимальне, мінімальне та середнє значення",
 		checkFunction: function () {
-
+			let numberCount = parseInt(prompt('Скільки чисел'))
+			let maxNumber = -Infinity,
+				minNumber = +Infinity,
+				sum = 0
+			for (let i = 0; i < numberCount; i++) {
+				let randNum = -100 + Math.floor(Math.random() * 201)
+				if (randNum > maxNumber) maxNumber = randNum
+				if (randNum < minNumber) minNumber = randNum
+				sum += randNum
+			}
+			let average = sum / numberCount
 			//alert(resultMessage)
-			//document.write(`Років : ${totalYear}`)
+			document.write(`Max =  ${maxNumber}, min = ${minNumber}, average = ${average}`)
 		}
 	},
 	{
