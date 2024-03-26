@@ -142,6 +142,27 @@ const questions = [
 		}
 	},
 	{
+		id: 5.3_6,
+		question: "Вивести горизонтальну діаграму з 8 рандомними ",
+		checkFunction: function () {
+			for (let i = 0; i < 8; i++) {
+				let randNum = 0 + Math.floor(Math.random() * 100)
+				document.write(`<div  style="height: 20px; width: ${randNum}%; background-color: red; margin: 10px;">${randNum}</div>`)
+			}
+			//alert(resultMessage)
+			//document.write(`Років : ${totalYear}`)
+		}
+	},
+	{
+		id: 5.3_7,
+		question: "",
+		checkFunction: function () {
+
+			//alert(resultMessage)
+			//document.write(`Років : ${totalYear}`)
+		}
+	},
+	{
 		id: 5.3_2,
 		question: "",
 		checkFunction: function () {
