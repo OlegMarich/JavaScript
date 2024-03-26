@@ -22,20 +22,20 @@ const questions = [
 	//document.write(`Років : ${totalYear}`)
 	//========================================
 	{
-		id: 5.3_1,
-		question: "Задача 11. Знайти суму 5 непарних випадкових чисел, що знаходяться між заданими користувачем числами.",
+		id: 5.3_2,
+		question: "Задача 5. Знайти суму 5 непарних	чисел, що знаходяться між заданими користувачем числами.",
 		checkFunction: function () {
 			//sum
 			//firstUserNumber, secondUserNumber
-			//oddnumber
-			let firstUserNumber = parseInt(prompt('First'))
-			let secondUserNumber = parseInt(prompt('Second'))
+			//oddNumber
+			let firstUserNumber = parseInt(prompt('Введіть перше число'))
+			let secondUserNumber = parseInt(prompt('Введіть друге число'))
 			if (firstUserNumber > secondUserNumber) {
 				let temp = firstUserNumber
 				firstUserNumber = secondUserNumber
 				secondUserNumber = temp
 			}
-			let oddnumber = 0
+			let oddNumber = 0
 			let sum = 0
 
 			let startNum
@@ -45,8 +45,8 @@ const questions = [
 			for (let num = startNum; num < secondUserNumber; num += 2) {
 				if (num % 2 !== 0) {
 					sum += num
-					oddnumber++
-					if (oddnumber === 5) break
+					oddNumber++
+					if (oddNumber === 5) break
 				}
 			}
 			//alert(`Sum : ${sum}`)
@@ -54,12 +54,91 @@ const questions = [
 		}
 	},
 	{
-		id: 5.3_2,
-		question: "",
+		id: 5.3_1,
+		question: "Задача 11. Знайти суму 5 непарних випадкових чисел, що знаходяться між заданими користувачем числами.",
+		checkFunction: function () {
+			//sum
+			//firstUserNumber, secondUserNumber
+			//oddNumber
+			let firstUserNumber = parseInt(prompt('Введіть перше число'))
+			let secondUserNumber = parseInt(prompt('Введіть друге число'))
+			if (firstUserNumber > secondUserNumber) {
+				let temp = firstUserNumber
+				firstUserNumber = secondUserNumber
+				secondUserNumber = temp
+			}
+
+			let oddNumber = 0
+			let sum = 0
+
+			while (oddNumber < 5) {
+				let randNum = firstUserNumber + Math.floor(Math.random() * (secondUserNumber - firstUserNumber + 1))
+				if (randNum % 2 === 1) {
+					sum += randNum
+					oddNumber++
+				}
+			}
+			//alert(resultMessage)
+			document.write(`Всього = ${sum}`)
+		}
+	},
+	{
+		id: 5.3_3,
+		question: "Задача 9.Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).",
+		checkFunction: function () {
+			//compNumber
+			let minNumber = parseInt(prompt('Введіть мінімільне число'))
+			let maxNumber = parseInt(prompt('Введіть максимальне число'))
+			let attemptsNumber = 0
+			let isGuessed
+
+			do {
+				let compNumber =
+					minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+				attemptsNumber++
+				isGuessed = confirm(`Чи ваше число таке: ${compNumber}?`)
+			} while (isGuessed === false)
+
+			document.write(`Число вгадано після ${attemptsNumber} спроби`)
+			//alert(resultMessage)
+		}
+	},
+	{
+		id: 5.3_4,
+		question: "Вивести 5 маркованих списків по 3 випадкових числа (1-100)",
 		checkFunction: function () {
 
+
+			for (let listNum = 1; listNum <= 5; listNum++) {
+				document.write(`List number = ${listNum}`)
+				document.write('<ul>')
+				for (let i = 1; i <= 3; i++) {
+					let randNum = Math.floor(Math.random() * 100)
+					document.write(`<li>${randNum}</li>`)
+				}
+				document.write('</ul>')
+			}
 			//alert(resultMessage)
 			//document.write(`Років : ${totalYear}`)
+		}
+	},
+	{
+		id: 5.3_5,
+		question: "Вивести 4 двовимірні таблиці 5*6. Заповнити рандомними номерами місяців",
+		checkFunction: function () {
+			for (let tableIndex = 0; tableIndex < 4; tableIndex++) {
+				document.write('<table border="2px">')
+				for (let rowInex = 0; rowInex < 5; rowInex++) {
+					document.write('<tr>')
+					for (let colIndex = 0; colIndex < 6; colIndex++) {
+						let randMonth = 1 + Math.floor(Math.random() * 12)
+						document.write(`<td>${randMonth}</td>`)
+					}
+					document.write('</tr> <br>')
+				}
+				document.write('</table>')
+			}
+			//alert(resultMessage)
 		}
 	},
 	{

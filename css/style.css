@@ -24,11 +24,10 @@ body {
 
 .header {
 }
-
 .footer {
 }
 
-/* ================== */
+/* ========================== */
 .page {
   flex: 1;
   display: flex;
@@ -40,7 +39,6 @@ body {
 }
 .lessons__content {
 }
-
 .lesson__link {
   display: inline-block;
   margin: 5px;
@@ -138,18 +136,26 @@ body {
   background-color: #fff;
   border-radius: 10px;
 }
+.item__action {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .item__text {
   font-size: 18px;
   line-height: 1.3;
+  padding: 10px;
 }
 .item__label {
   font-weight: 700;
   text-decoration: underline;
 }
-
 .item__btn {
+  min-height: max-content;
+  padding: 10px;
 }
-
 .lesson-page__add {
 }
 .lesson-page__practice {
