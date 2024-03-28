@@ -224,7 +224,7 @@ const questions = [
 		checkFunction: function () {
 			for (let start = 1, end = 10; start <= 91; start += 10, end += 10) {
 				document.write('-----<br>')
-				for (let j = 0; j < 3; ) {
+				for (let j = 0; j < 3;) {
 					let randNum = start + Math.floor(Math.random() * (end - start + 1))
 					if (randNum % 2 === 0) {
 						document.write(`${randNum} <br>`)
@@ -243,7 +243,9 @@ const questions = [
 			for (let imgNum = 0; imgNum < 10; imgNum++) {
 				const left = Math.floor(Math.random() * 100)
 				const top = Math.floor(Math.random() * 100)
-				document.write(`<img src="../img/smile/img1.jpg" alt="Smile" style="position: fixed; left:${left}%;top: ${top}%;>`)
+				document.write(
+					`<img src="../img/smile/img3.jpg" alt="Smile" style="position: fixed; left:${left}%;top: ${top}%">`
+				)
 			}
 			//alert(resultMessage)
 		}
