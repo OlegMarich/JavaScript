@@ -243,7 +243,7 @@ const questions = [
 			for (let imgNum = 0; imgNum < 10; imgNum++) {
 				const left = Math.floor(Math.random() * 100)
 				const top = Math.floor(Math.random() * 100)
-				document.write(`<img src="../img/smile/img1.jpg" alt="Smile" style="position: fixed; left:${left}%;top: ${top}%;>`)
+				document.write(`<img src="./img/smile/img1.jpg" alt="Smile" style="position: fixed; left:${left}%;top: ${top}%;>`)
 			}
 			//alert(resultMessage)
 		}
