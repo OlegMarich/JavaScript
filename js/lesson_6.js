@@ -173,12 +173,88 @@ const questions = [
 		}
 	},
 	{
+		id: 5.3_8,
+		question: "Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи непарних.",
+		checkFunction: function () {
+			let oddNumber = 0
+			let evenNumber = 0
+
+			for (let i = 0; i < 100; i++) {
+				let randNumber = 1 + Math.floor(Math.random() * 1000)
+				if (randNumber % 2 === 0) evenNumber++
+				else oddNumber++
+			}
+			if (oddNumber > evenNumber) document.write('Більше не парних.')
+			else if (evenNumber > oddNumber) document.write('Більше парних.')
+			else document.write('Рівна кількість')
+		}
+	},
+	{
+		id: 5.3_9,
+		question: "Задача 3. Вивести високосні роки у вказаному діапазоні (між початковим та кінцевими роками)",
+		checkFunction: function () {
+			let startYear = parseInt(prompt('Введіть початковий рік віддліку'))
+			let endYear = parseInt(prompt('Введіть кінцевий рік відліку'))
+			for (let year = startYear; year < endYear; year++)
+				if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0)
+					document.write(`${year} <br>`)
+
+			//alert(resultMessage)
+			//document.write(`Років : ${}`)
+		}
+	},
+	{
+		id: 5.3_11,
+		question: "Задача 4. Вивести усі трицифрові числа, де друга цифра завжди є меншою або рівню за першу, а третя є меншою або рівною за другу. 100 - 999",
+		checkFunction: function () {
+			for (let c1 = 1; c1 <= 9; c1++) {
+				for (let c2 = 0; c2 <= c1; c2++) {
+					for (let c3 = 0; c3 <= c2; c3++) {
+						document.write(`${c1}${c2}${c3}<br>`)
+					}
+				}
+			}
+			//alert(resultMessage)
+			//document.write(`Років : ${}`)
+		}
+	},
+	{
+		id: 5.3_12,
+		question: "Вивести з кожного десятка (1-10, 11-20, 21-30, ... , 91-100) по 3 випадкових парних числа",
+		checkFunction: function () {
+			for (let start = 1, end = 10; start <= 91; start += 10, end += 10) {
+				document.write('-----<br>')
+				for (let j = 0; j < 3; ) {
+					let randNum = start + Math.floor(Math.random() * (end - start + 1))
+					if (randNum % 2 === 0) {
+						document.write(`${randNum} <br>`)
+						j++
+					}
+				}
+			}
+			//alert(resultMessage)
+			//document.write(`Років : ${}`)
+		}
+	},
+	{
+		id: 5.3_13,
+		question: "Випадковим  чином вивести у рандомних позиціях 10 зображень-смайликів",
+		checkFunction: function () {
+			for (let imgNum = 0; imgNum < 10; imgNum++) {
+				const left = Math.floor(Math.random() * 100)
+				const top = Math.floor(Math.random() * 100)
+				document.write(`<img src="../img/smile/img1.jpg" alt="Smile" style="position: fixed; left:${left}%;top: ${top}%;>`)
+			}
+			//alert(resultMessage)
+		}
+	},
+	{
 		id: 5.3_2,
 		question: "",
 		checkFunction: function () {
 
 			//alert(resultMessage)
-			//document.write(`Років : ${totalYear}`)
+			//document.write(`Років : ${}`)
 		}
 	},
 ];
