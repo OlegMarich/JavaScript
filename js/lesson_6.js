@@ -1,6 +1,60 @@
 const questions = [
 	{
 		id: 5.1_1,
+		question: "0. Вивести на екран",
+		checkFunction: function () {
+			for (let i = 0; i < 5; i++) {
+				let row = '';
+				for (let j = i; j < i + 5; j++) {
+					row += String.fromCharCode(65 + j) + ' '; // ASCII-код 'A' - 65, тому ми додаємо j до нього
+				}
+				document.write(`${row} <br>`);
+			}
+		}
+	},
+	{
+		id: 5.1_2,
+		question: "1. Використовуючи цикли вивести на екран 20 символів «о».",
+		checkFunction: function () {
+			let symbol = 0
+			for (let i = 0; i <= 20; i++) {
+				symbol = 'o'
+				document.write(`${symbol}`)
+			}
+		}
+	},
+	{
+		id: 5.1_3,
+		question: "2. Відобразити трикутник за допомогою символів «о»",
+		checkFunction: function () {
+			const rows = 7
+
+			for (let rowIndex = rows; rowIndex >= 1; rowIndex--) {
+				let row = ''
+				for (let symbol = 1; symbol <= rowIndex; symbol++) {
+					row += 'o'
+				}
+				document.write(`${row} <br>`)
+			}
+		}
+	},
+	{
+		id: 5.1_4,
+		question: "Інвестор вклав S тис. грн на 20 років під 20% річних. Визначити за допомогою циклів суму, яку він одержить (без оподаткування).",
+		checkFunction: function () {
+			let money = parseFloat(prompt('Введіть суму яку ви готові інвестувати'))
+			let totalEarn = 0
+			for (let i = 1; i <= 20; i++) {
+				let earn = money * 0.2
+				totalEarn += earn
+				money += earn
+			}
+			document.write(`Ви отримаєте : ${totalEarn}`)
+			//alert(`Ви отримаєте : ${totalEarn}`)
+		}
+	},
+	{
+		id: 5.1_1,
 		question: "",
 		checkFunction: function () {
 
@@ -8,18 +62,100 @@ const questions = [
 			//document.write(`Років : ${totalYear}`)
 		}
 	},
-
 	// ======================================
 	{
 		id: 5.2_1,
 		question: "",
 		checkFunction: function () {
+			const rows = 7
 
-			//	document.write(`Років : ${totalYear}`)
+			for (let rowIndex = 1; rowIndex <= rows; rowIndex++) {
+				let row = ''
+				for (let symbol = 1; symbol <= rowIndex; symbol++) {
+					row += 'o'
+				}
+				document.write(`${row} <br>`)
+			}
+		}
+		//	document.write(`Років : ${totalYear}`)
+	},
+	{
+		id: 5.2_2,
+		question: "6. Інвестор вклав  тис. грн на 20 років під 20% річних, податок складає 5% від суми прибутку. Визначити за допомогою циклів суму, яку він одержить.",
+		checkFunction: function () {
+			let money = parseFloat(prompt('Введіть суму яку ви готові інвестувати'))
+			let totalEarn = 0
+			let taxRate = 0.05
+			for (let i = 1; i <= 20; i++) {
+				let earn = money * 0.2
+				let tax = earn * taxRate
+				earn -= tax
+				totalEarn += earn
+				money += earn
+				totalEarn = Math.round(totalEarn * 100) / 100
+			}
+			document.write(`Ви отримаєте : ${totalEarn}`)
+			//alert(`Ви отримаєте : ${totalEarn}`)
+
 		}
 	},
-	//alert(resultMessage)
-	//document.write(`Років : ${totalYear}`)
+	{
+		id: 5.2_3,
+		question: "Інвестор вклав  тис. грн на 20 років під 20% річних, а потім на 17 років під 27% річних. Визначити за допомогою циклів суму, яку він одержить.",
+		checkFunction: function () {
+			let money = parseFloat(prompt('Введіть суму яку ви готові інвестувати'))
+			let totalEarn = 0
+			for (let i = 1; i <= 20; i++) {
+				let earn = money * 0.2
+				totalEarn += earn
+				money += earn
+			}
+			for (let i = 1; i <= 17; i++) {
+				let earn = money * 0.27
+				totalEarn += earn
+				money += earn
+			}
+			totalEarn = Math.round(totalEarn * 100) / 100
+			document.write(`Ви отримаєте : ${totalEarn}`)
+		}
+	},
+
+	{
+		id: 5.2_4,
+		question: "Вивести на екран послідовність символів",
+		checkFunction: function () {
+			let A = 0
+			let O = 0
+			for (let i = 0; i <= 82; i++) {
+				A = 'a'
+				for (let i = 0; i <= 82; i++) {
+					O = 'o'
+				}
+				document.write(`${A}${O}<br>`)
+			}
+		}
+	},
+	{
+		id: 5.2_5,
+		question: "Вивести на екран цифри",
+		checkFunction: function () {
+			let count = 0
+			for (let i = 1; i <= 25; i++) {
+				
+			}
+			document.write(`${count}`)
+		}
+		//alert(resultMessage)
+	},
+	{
+		id: 5.2_1,
+		question: "",
+		checkFunction: function () {
+
+		}
+		//alert(resultMessage)
+		//document.write(`${}`)
+	},
 	//========================================
 	{
 		id: 5.3_2,
@@ -107,7 +243,6 @@ const questions = [
 		id: 5.3_4,
 		question: "Вивести 5 маркованих списків по 3 випадкових числа (1-100)",
 		checkFunction: function () {
-
 
 			for (let listNum = 1; listNum <= 5; listNum++) {
 				document.write(`List number = ${listNum}`)
@@ -248,6 +383,65 @@ const questions = [
 				)
 			}
 			//alert(resultMessage)
+		}
+	},
+	{
+		id: 5.3_14,
+		question: "Користувачу повідомляють суму яку йому треба сплатити. Користувач поступово вводить суму грошей до тих пір, поки суми не буде достатньо для сплати товарів",
+		checkFunction: function () {
+			let productPrice = parseFloat(prompt('Введіть вартість товару'))
+			let totalUserMoney = 0
+			while (totalUserMoney < productPrice) {
+				const userMoney = parseFloat(prompt(`Ще потрібно сплатити ${productPrice - totalUserMoney}`))
+				totalUserMoney += userMoney
+			}
+			document.write('Вітаємо з покупкою')
+			//alert(resultMessage)
+		}
+	},
+	{
+		id: 5.3_15,
+		question: " Задача 2.  Тільки позитивні емоції. З клавіатури вводиться М - максимальна кількість смайликів, які можна вивести. Комп’ютер випадково вибирає якесь із 4 наперед заданих. Серед них є сумний смайл.",
+		checkFunction: function () {
+			const maxSmileNum = parseInt(prompt('максимальна кількість смайлів'))
+			const sadSmileIndex = 4
+			//1)Якщо знаходимо сумний смайл – зупитини
+			//2)Якщо знаходимо сумний смайл – пропустити
+			//3)Якщо знаходимо сумний смайл – вибрати наступний позитивний
+			for (let i = 0; i < maxSmileNum; i++) {
+				const randSmileIndex = 1 + Math.floor(Math.random() * 4)
+				if (randSmileIndex === sadSmileIndex) break //continue
+				document.write(
+					`<img src="../img/smile/img${randSmileIndex}.jpg" style="width:100px"><br>`
+				)
+			}
+			//alert(resultMessage)
+			//document.write(`Років : ${}`)
+		}
+	},
+	{
+		id: 5.3_16,
+		question: "Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач намагається потопити корабель.",
+		checkFunction: function () {
+			let colNumber = parseInt(prompt('Введіть ширину поля'))
+			let rowNumber = parseInt(prompt('Введіть висоту поля'))
+			let bulletNumber = parseInt(prompt('Введіть кількість спроб'))
+
+			let compRow = 1 + Math.floor(Math.random() * rowNumber)
+			let compCol = 1 + Math.floor(Math.random() * colNumber)
+			let userRow, userCol
+			for (let i = 0; i < bulletNumber; i++) {
+				userRow = parseInt(prompt('Введіть номер рядка'))
+				userCol = parseInt(prompt('Введіть номер стовпця'))
+				if (userRow === compRow && userCol === compCol)
+					alert('Попав')
+				else alert(`Не попав!`)
+			}
+			if (userRow !== compRow || userCol !== compCol)
+				alert(`Програш! Ціль була стовбець: ${colNumber} рядок: ${rowNumber}`)
+			//Ціль була стовбець: ${colNumber} рядок: ${rowNumber}
+			//alert(resultMessage)
+			//document.write(`Років : ${}`)
 		}
 	},
 	{
