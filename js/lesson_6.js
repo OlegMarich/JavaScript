@@ -95,8 +95,6 @@ const questions = [
 				totalEarn = Math.round(totalEarn * 100) / 100
 			}
 			document.write(`Ви отримаєте : ${totalEarn}`)
-			//alert(`Ви отримаєте : ${totalEarn}`)
-
 		}
 	},
 	{
@@ -119,7 +117,6 @@ const questions = [
 			document.write(`Ви отримаєте : ${totalEarn}`)
 		}
 	},
-
 	{
 		id: 5.2_4,
 		question: "Вивести на екран послідовність символів",
@@ -139,14 +136,46 @@ const questions = [
 		id: 5.2_5,
 		question: "Вивести на екран цифри",
 		checkFunction: function () {
-			let count = 0
-			for (let i = 1; i <= 25; i++) {
-				
+
+			let rows = 25
+			for (let i = 1; i <= rows; i++) {
+				let rowString = ''
+				rowString += i
+				for (let j = 1; j <= i; j++) {
+					rowString += j
+				}
+				document.write(rowString + '<br>')
 			}
-			document.write(`${count}`)
 		}
-		//alert(resultMessage)
 	},
+	{
+		id: 5.2_6,
+		question: "",
+		checkFunction: function () {
+
+			for (let rowNumber = 0; rowNumber <= 6; rowNumber++) {
+				let rowString = ''
+				let num = 1
+				for (let j = 1; j <= rowNumber; j++) {
+					if (rowNumber === 1 && rowNumber % 4) {
+						rowNumber * 4
+						num++	
+					} 
+					document.write(`${rowNumber} ${rowString} <br>`)
+				}
+				// for (let listNum = 1; listNum <= 5; listNum++) {
+				// 	document.write(`List number = ${listNum}`)
+				// 	document.write('<ul>')
+				// 	for (let i = 1; i <= 3; i++) {
+				// 		let randNum = Math.floor(Math.random() * 100)
+				// 		document.write(`<li>${randNum}</li>`)
+				//	}
+				// 	document.write('</ul>')
+				}
+
+			}
+			//alert(resultMessage)
+		},
 	{
 		id: 5.2_1,
 		question: "",
