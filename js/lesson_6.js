@@ -84,7 +84,6 @@ const questions = [
 				document.write(`${row} <br>`)
 			}
 		}
-		//	document.write(`Років : ${totalYear}`)
 	},
 	{
 		id: 5.2_2,
