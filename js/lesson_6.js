@@ -54,13 +54,20 @@ const questions = [
 		}
 	},
 	{
-		id: 5.1_1,
-		question: "",
+		id: 5.1_5,
+		question: "Вивести на екран цифри",
 		checkFunction: function () {
 
-			//alert(resultMessage)
-			//document.write(`Років : ${totalYear}`)
-		}
+			let rows = 25
+			for (let i = 1; i <= rows; i++) {
+				let rowString = ''
+				rowString += i
+				for (let j = 1; j <= i; j++) {
+					rowString += j
+				}
+				document.write(rowString + '<br>')
+			}
+		}	
 	},
 	// ======================================
 	{
@@ -133,54 +140,9 @@ const questions = [
 		}
 	},
 	{
-		id: 5.2_5,
-		question: "Вивести на екран цифри",
-		checkFunction: function () {
-
-			let rows = 25
-			for (let i = 1; i <= rows; i++) {
-				let rowString = ''
-				rowString += i
-				for (let j = 1; j <= i; j++) {
-					rowString += j
-				}
-				document.write(rowString + '<br>')
-			}
-		}
-	},
-	{
-		id: 5.2_6,
-		question: "",
-		checkFunction: function () {
-
-			for (let rowNumber = 0; rowNumber <= 6; rowNumber++) {
-				let rowString = ''
-				let num = 1
-				for (let j = 1; j <= rowNumber; j++) {
-					if (rowNumber === 1 && rowNumber % 4) {
-						rowNumber * 4
-						num++	
-					} 
-					document.write(`${rowNumber} ${rowString} <br>`)
-				}
-				// for (let listNum = 1; listNum <= 5; listNum++) {
-				// 	document.write(`List number = ${listNum}`)
-				// 	document.write('<ul>')
-				// 	for (let i = 1; i <= 3; i++) {
-				// 		let randNum = Math.floor(Math.random() * 100)
-				// 		document.write(`<li>${randNum}</li>`)
-				//	}
-				// 	document.write('</ul>')
-				}
-
-			}
-			//alert(resultMessage)
-		},
-	{
 		id: 5.2_1,
 		question: "",
 		checkFunction: function () {
-
 		}
 		//alert(resultMessage)
 		//document.write(`${}`)
