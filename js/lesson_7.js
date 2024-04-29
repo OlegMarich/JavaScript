@@ -96,7 +96,6 @@ const questions = [
 
 			let total = getTripCost(livingCost, foodCost, proceduresCost, daysNumber)
 
-			//alert(resultMessage)
 			document.write(`Путівка коштує = ${total}`)
 		}
 	},
