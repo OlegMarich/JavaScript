@@ -1,38 +1,133 @@
 const questions = [
 	{
 		id: 5.1_1,
-		question: "",
+		question: "Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.",
 		checkFunction: function () {
-			//alert(resultMessage)
-			//document.write(`${}`)
+			function getSeason(season) {
+				if (monthNumber >= 3 && monthNumber <= 5) season = 'Весна'
+				else if (monthNumber >= 6 && monthNumber <= 8) season = 'Літо'
+				else if (monthNumber >= 9 && monthNumber <= 11) season = 'Осінь'
+				else season = 'Зима'
+				return season
+			}
+
+			let monthNumber = parseInt(prompt('Введіть вибраний Вами місяць (від 1 до 12)'))
+			let divisionsOfTheYear = getSeason(3)
+
+			document.write(
+				`<div>Вибраний Вами місяць означає що зараз на дворі: ${divisionsOfTheYear}</div> 
+				<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.1_2,
+		question: "Задача 3. Створити окремі функції, які для 4 чисел знаходять: 1)суму; 2)добуток;	3)середнє арифметичне;	4)мінімальне значення.",
+		checkFunction: function () {
+			function getSum(a, b, c, d) {
+				let sum = a + b + c + d;
+				return sum
+			}
+
+			function getProduct(a, b, c, d) {
+				let product = a * b * c * d;
+				return product
+			}
+
+			function getAverage(a, b, c, d) {
+				let average = (a + b + c + d) / 4;
+				return average
+			}
+
+			function getMin(a, b, c, d) {
+				let min = Math.min(a, b, c, d);
+				return min
+			}
+
+			let a = parseFloat(prompt('Перше число'))
+			let b = parseFloat(prompt('Друге число'))
+			let c = parseFloat(prompt('Третє число'))
+			let d = parseFloat(prompt('Четверте число'))
+			
+			let sum = getSum(a, b, c, d)
+			let product = getProduct(a, b, c, d)
+			let average = getAverage(a, b, c, d)
+			let min = getMin(a, b, c, d)
+		
+			document.write(
+				`<div> Ваші числа: ${a}, ${b}, ${c}, ${d} </br>
+				Сума Ваших чисел: ${sum}, добуток: ${product}, середнє арифметичне: ${average}, мінімальне значення: ${min} </div>
+				<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
 		}
 	},
 	// {
-	// 	id: 5.1_1,
+	// 	id: 5.1_,
 	// 	question: "",
 	// 	checkFunction: function () {
 	// 		//alert(resultMessage)
-	// 		//document.write(`${}`)
+	// 		//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
 	// 	}
 	// },
 
 	// ======================================
 	{
 		id: 5.2_1,
-		question: "",
+		question: "Задача 1. Створити функцію, яка за номером місяця повертає його назву.",
 		checkFunction: function () {
-			//alert(resultMessage)
-			//document.write(`${}`)
+			function getMonthName(monthNumber) {
+				let monthName
+				if (monthNumber === 1) monthName = 'Січень'
+				if (monthNumber === 2) monthName = 'Лютий'
+				if (monthNumber === 3) monthName = 'Березень'
+				if (monthNumber === 4) monthName = 'Квітень'
+				if (monthNumber === 5) monthName = 'Травень'
+				if (monthNumber === 6) monthName = 'Червень'
+				if (monthNumber === 7) monthName = 'Липень'
+				if (monthNumber === 8) monthName = 'Серпень'
+				if (monthNumber === 9) monthName = 'Вересень'
+				if (monthNumber === 10) monthName = 'Жовтень'
+				if (monthNumber === 11) monthName = 'Листопад'
+				if (monthNumber === 12) monthName = 'Грудень'
+				return monthName
+			}
+
+			let monthNumber = parseInt(prompt('Введіть номер місяця (від 1 до 12)'))
+			let monthName = getMonthName(monthNumber)
+
+			document.write(
+				`<div> Вибраний Вами місяць: ${monthName}</div>
+				<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`
+			)
+		}
+	},
+	{
+		id: 5.2_2,
+		question: "Задача 2. Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.",
+		checkFunction: function () {
+			function getWorkingPeriod() {
+				let dayType
+				if (dayNumber >= 6 && dayNumber <= 7) dayType = 'Вихідний'
+				else dayType = 'Робочий день'
+				return dayType
+			}
+
+			let dayNumber = parseInt(prompt('Оберіть Ваш день (від 1 до 7)'))
+			let dayType = getWorkingPeriod()
+
+			document.write(
+				`<div> Ваш день є ${dayType}</div>
+				<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`
+			)
 		}
 	},
 	// {
 	// 	id: 5.2_,
 	// 	question: "",
 	// 	checkFunction: function () {
+	// 		//alert(resultMessage)
+	// 		//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
 	// 	}
-	// 	//alert(resultMessage)
-	// 	//document.write(`${}`)
 	// },
+
 	//========================================
 	{
 		id: 5.3_1,
@@ -47,7 +142,10 @@ const questions = [
 			let c = parseFloat(prompt('Третє число'))
 			let s = getSum(a, b, c)
 			//alert(resultMessage)
-			document.write(`Сума чисел = ${s}`)
+			document.write(
+				`Сума чисел = ${s} 
+				<a href="../components/lesson7.html">Повернутися до уроку</a>`
+			)
 		}
 	},
 	{
@@ -62,7 +160,10 @@ const questions = [
 
 			let money = getTotalRentalCost(costPerMonth, numberOfMonth)
 
-			document.write(`Загальна вартість оренди = ${money}`)
+			document.write(
+				`Загальна вартість оренди = ${money}
+				<a href="../components/lesson7.html">Повернутися до уроку</a>`
+			)
 		}
 	},
 	{
@@ -79,7 +180,10 @@ const questions = [
 
 			let profit = getBankProfit(dollarBuyRate, dollarSaleRate, dollarAmount)
 			//alert(resultMessage)
-			document.write(`Заробіток банку становить ${profit}`)
+			document.write(
+				`Заробіток банку становить ${profit}`
+					`<a href="../components/lesson7.html">Повернутися до уроку</a>`
+			)
 		}
 	},
 	{
@@ -96,7 +200,10 @@ const questions = [
 
 			let total = getTripCost(livingCost, foodCost, proceduresCost, daysNumber)
 
-			document.write(`Путівка коштує = ${total}`)
+			document.write(
+				`Путівка коштує = ${total} 
+				<a href="../components/lesson7.html">Повернутися до уроку</a>`
+			)
 		}
 	},
 	{
@@ -110,7 +217,10 @@ const questions = [
 			const elementWidthPercent = parseFloat(prompt('Введіть ширину елемента у відсотках'))
 			const elementWidthInPx = getElementWidthInPx(containerWidthPx, elementWidthPercent)
 
-			document.write(`Ширина елемента = ${elementWidthInPx}px`)
+			document.write(
+				`Ширина елемента = ${elementWidthInPx}px
+				<a href="../components/lesson7.html">Повернутися до уроку</a>`
+			)
 		}
 	},
 	{
@@ -130,13 +240,62 @@ const questions = [
 			else alert('Не помістяться')
 			//document.write(`${}`)
 		}
-	}
+	},
+	{
+		id: 5.3_7,
+		question: "Задано показники таймера відліку. Знайти колір, який треба застосувати для його виведення (100 - 80 зелений, 79 - 30 жовтий, 29 - 0 червоний).",
+		checkFunction: function () {
+			function getTimerColor(timerValve) {
+				let color
+				if (timerValve >= 80) color = 'green'
+				else if (timerValve >= 30) color = 'yellow'
+				else color = 'red'
+				return color
+			}
+
+			const timerValve = parseInt(prompt('Які показники таймера?'))
+			const timeColor = getTimerColor(timerValve)
+
+			document.write(
+				`<div style="background-color:${timeColor}; width:${timerValve}%">${timerValve}</div>
+				<a href="../components/lesson7.html">Повернутися до уроку</a>`
+			)
+		}
+	},
+	{
+		id: 5.3_8,
+		question: "Двоє гравців кидають два рази кубик і визначається загальна кількість балів. Визначити переможця",
+		checkFunction: function () {
+			function getRandomeScore(edgeNumber) {
+				return 1 + Math.floor(Math.random() * edgeNumber)
+			}
+			function getTotalPlayerScore(edgeNumber) {
+				let score1 = getRandomeScore(edgeNumber)
+				let score2 = getRandomeScore(edgeNumber)
+				return score1 + score2
+			}
+
+			let edgeNumber = parseInt(prompt('Скільки граней у кубика'))
+
+			let player1ScoreTotal = getTotalPlayerScore(edgeNumber)
+			let player2ScoreTotal = getTotalPlayerScore(edgeNumber)
+
+			alert(
+				`Релультат першого гравця :${player1ScoreTotal},  Результат другого гравця:${player2ScoreTotal}`
+			)
+
+			if (player1ScoreTotal > player2ScoreTotal) alert('Виграв перший гравець')
+			else if (player1ScoreTotal < player2ScoreTotal) alert('Виграв другий гравець')
+			else alert('Нічия')
+			//document.write(`${}<a href="../components/lesson7.html">Повернутися до уроку</a>`)
+		}
+	},
 	// {
 	// 	id: 5.3_,
 	// 	question: "",
 	// 	checkFunction: function () {
 	// 		//alert(resultMessage)
-	// 		//document.write(`${}`)
+	// 		//document.write(`${}<a href="../components/lesson7.html">Повернутися до уроку</a>`)
 	// 	}
 	// },
 ];
