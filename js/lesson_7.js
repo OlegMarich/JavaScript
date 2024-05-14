@@ -47,14 +47,14 @@ const questions = [
 			let b = parseFloat(prompt('Друге число'))
 			let c = parseFloat(prompt('Третє число'))
 			let d = parseFloat(prompt('Четверте число'))
-			
+
 			let sum = getSum(a, b, c, d)
 			let product = getProduct(a, b, c, d)
 			let average = getAverage(a, b, c, d)
 			let min = getMin(a, b, c, d)
-		
+
 			document.write(
-				`<div> Ваші числа: ${a}, ${b}, ${c}, ${d} </br>
+				`<div> Ваші числа: ${a}, ${b}, ${c}, ${d}. </br>
 				Сума Ваших чисел: ${sum}, добуток: ${product}, середнє арифметичне: ${average}, мінімальне значення: ${min} </div>
 				<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
 		}
@@ -63,7 +63,7 @@ const questions = [
 	// 	id: 5.1_,
 	// 	question: "",
 	// 	checkFunction: function () {
-	// 		//alert(resultMessage)
+	// 		//alert(resultMessage)  if (numbers[i] % 2 === 0)
 	// 		//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
 	// 	}
 	// },
@@ -119,12 +119,74 @@ const questions = [
 			)
 		}
 	},
+	{
+		id: 5.2_3,
+		question: "Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість додатних, кількість більших за 100.",
+		checkFunction: function () {
+
+			function chekNumbers(a, b, c) {
+				let evenCount = 0
+				let positiveCount = 0
+				let greaterThan100Count = 0
+
+				if (a % 2 === 0) {
+					evenCount++
+				}
+				if (a > 0) {
+					positiveCount++
+				}
+				if (a > 100) {
+					greaterThan100Count++
+				}
+
+				if (b % 2 === 0) {
+					evenCount++
+				}
+				if (b > 0) {
+					positiveCount++
+				}
+				if (b > 100) {
+					greaterThan100Count++
+				}
+
+				if (c % 2 === 0) {
+					evenCount++
+				}
+				if (c > 0) {
+					positiveCount++
+				}
+				if (c > 100) {
+					greaterThan100Count++
+				}
+			
+				return {
+					evenCount,
+					positiveCount,
+					greaterThan100Count
+				}
+			}
+
+			let a = parseInt(prompt('Введіть число 1 (від 1 до 1000)'))
+			let b = parseInt(prompt('Введіть число 2 (від 1 до 1000)'))
+			let c = parseInt(prompt('Введіть число 3 (від 1 до 1000)'))
+
+			let result = chekNumbers(a, b, c)
+
+			document.write(
+				`<div>
+					Введені числа ${a} ${b} ${c}.<br>
+					Кількість парних чисел: ${result.evenCount}.<br>	
+					Кількість додатних чисел: ${result.positiveCount}.<br> 
+					Кількість чисел більших за 100: ${result.greaterThan100Count}.</div>
+					<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
+		}
+	},
 	// {
 	// 	id: 5.2_,
 	// 	question: "",
 	// 	checkFunction: function () {
-	// 		//alert(resultMessage)
-	// 		//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
+	// 	alert(resultMessage)
+	//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
 	// 	}
 	// },
 
@@ -141,7 +203,7 @@ const questions = [
 			let b = parseFloat(prompt('Друге число'))
 			let c = parseFloat(prompt('Третє число'))
 			let s = getSum(a, b, c)
-			//alert(resultMessage)
+			
 			document.write(
 				`Сума чисел = ${s} 
 				<a href="../components/lesson7.html">Повернутися до уроку</a>`
@@ -179,7 +241,7 @@ const questions = [
 			let dollarAmount = parseFloat(prompt('Кількість долларів'))
 
 			let profit = getBankProfit(dollarBuyRate, dollarSaleRate, dollarAmount)
-			//alert(resultMessage)
+			
 			document.write(
 				`Заробіток банку становить ${profit}`
 					`<a href="../components/lesson7.html">Повернутися до уроку</a>`
@@ -238,7 +300,7 @@ const questions = [
 			if (isSpaceAvalible(elementWidth, containerWidth, elementsNumber))
 				alert('Помістяться')
 			else alert('Не помістяться')
-			//document.write(`${}`)
+			
 		}
 	},
 	{
