@@ -59,39 +59,32 @@ const questions = [
 				<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
 		}
 	},
-	// {
-	// 	id: 5.1_3,
-	// 	question: "Задача 6. Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим фіксованим повідомленням).",
-	// 	checkFunction: function () {
-	// 		function createTable(numbersOfRows, nubersOfColumn) {
-	// 			return numbersOfRows, nubersOfColumn
-	// 		}
-	// 		let numbersOfRows = cellNum
-	// 		let nubersOfColumn = 
+	{
+		id: 5.1_3,
+		question: "Задача 6. Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим фіксованим повідомленням).",
+		checkFunction: function () {
+			function createTable(numbersOfRows, numbersOfColumn, message) {
+				let talbeHTML = '<table border="2px">'
+				for (let j = 0; j < numbersOfRows; j++) {
+					talbeHTML += '<tr>'
+					for (let i = 0; i < numbersOfColumn; i++) {
+						talbeHTML += `<td>${message}</td>`
+					}
+					talbeHTML += '<tr>'
+				}
+				talbeHTML += '</table>'
+				return talbeHTML
+			}
+			let numbersOfRows = parseInt(prompt('Введіть необхідну кількість рядків'))
+			let numbersOfColumn = parseInt(prompt('Введіть необхідну кількість стовпців'))
+			let message = prompt('Введіть повідомлення для заповнення комірок')
 
-
-	// 		for (let i = 0; i < rows; i++) {
-  //       // Створюємо рядок таблиці
-  //       const tr = document.createElement('tr')
-
-  //       for (let j = 0; j < cols; j++) {
-  //           // Створюємо комірку таблиці
-  //           const td = document.createElement('td')
-  //           td.style.border = '1px solid black' // Додаємо стилі
-  //           td.style.padding = '5px'
-
-
-
-			// document.write('<table border="2px">')
-						
-			// let cellNum = 0
-			// for (let cellNum = 1; cellNum <= 7; cellNum++) {
-			// 	document.write(`<td> ${cellNum}  </td>`)
-			// }
-			// document.write('</table>')
-
-			//number of rows and columns
-			//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
+			let talbeHTML = createTable(numbersOfRows, numbersOfColumn, message)
+		
+			document.write(
+				`<div>${talbeHTML}</div>
+			<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`
+			)
 		}
 	},
 	// {
