@@ -80,18 +80,43 @@ const questions = [
 			let message = prompt('Введіть повідомлення для заповнення комірок')
 
 			let talbeHTML = createTable(numbersOfRows, numbersOfColumn, message)
-		
+
 			document.write(
 				`<div>${talbeHTML}</div>
 			<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`
 			)
 		}
 	},
+	{
+		id: 5.1_4,
+		question: "Задача 8. Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок та посилання, куди переходимо при кліку на зображення",
+		checkFunction: function () {
+			function showBanner(imageSrc, title, linkUrl) {
+				document.write(`
+					<div>
+					<h2>${title}</h2>
+					<a href="${linkUrl}"> 
+						<img src="${imageSrc}" style="width:100px">
+					</a>
+					</div>
+				`)
+			}
+
+			let imageSrc = `../img/smile/img2.jpg`
+			let title = `Лише посміхайся, навіть коли вчиш JS`
+			let linkUrl = `../components/lesson7.html`
+
+			showBanner(imageSrc, title, linkUrl)
+
+			//alert(resultMessage)
+			//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
+		}
+	},
 	// {
 	// 	id: 5.1_,
 	// 	question: "",
 	// 	checkFunction: function () {
-	// 		//alert(resultMessage)  if (numbers[i] % 2 === 0)
+	// 		//alert(resultMessage) 
 	// 		//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
 	// 	}
 	// },
@@ -246,12 +271,26 @@ const questions = [
 			)
 		}
 	},
+	{
+		id: 5.2_5,
+		question: "Задача 7. Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень (шляхи до зображень передаються у функцію)",
+		checkFunction: function () {
+			function showRandomImage() {
+				let randImageIndex = 1 + Math.floor(Math.random() * 4)
+				document.write(
+					`<div> Вибрана картинка номер ${randImageIndex}.<br>
+					<img src = "../img/smile/img${randImageIndex}.jpg" style = "width:100px"><br></div>
+					<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
+			}
+			showRandomImage()
+		}
+	},
 	// {
 	// 	id: 5.2_,
 	// 	question: "",
 	// 	checkFunction: function () {
 	// 	alert(resultMessage)
-	//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
+	//document.write(`< div > ${}</ > <div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
 	// 	}
 	// },
 	//========================================
@@ -269,8 +308,8 @@ const questions = [
 			let s = getSum(a, b, c)
 
 			document.write(
-				`Сума чисел = ${s} 
-				<a href="../components/lesson7.html">Повернутися до уроку</a>`
+				`Сума чисел = ${s}
+			< a href = "../components/lesson7.html" > Повернутися до уроку</ > `
 			)
 		}
 	},
@@ -288,7 +327,7 @@ const questions = [
 
 			document.write(
 				`Загальна вартість оренди = ${money}
-				<a href="../components/lesson7.html">Повернутися до уроку</a>`
+			< a href = "../components/lesson7.html" > Повернутися до уроку</ > `
 			)
 		}
 	},
@@ -308,7 +347,7 @@ const questions = [
 
 			document.write(
 				`Заробіток банку становить ${profit}`
-					`<a href="../components/lesson7.html">Повернутися до уроку</a>`
+					`< a href = "../components/lesson7.html" > Повернутися до уроку</ > `
 			)
 		}
 	},
@@ -327,8 +366,8 @@ const questions = [
 			let total = getTripCost(livingCost, foodCost, proceduresCost, daysNumber)
 
 			document.write(
-				`Путівка коштує = ${total} 
-				<a href="../components/lesson7.html">Повернутися до уроку</a>`
+				`Путівка коштує = ${total}
+			< a href = "../components/lesson7.html" > Повернутися до уроку</ > `
 			)
 		}
 	},
@@ -345,7 +384,7 @@ const questions = [
 
 			document.write(
 				`Ширина елемента = ${elementWidthInPx}px
-				<a href="../components/lesson7.html">Повернутися до уроку</a>`
+			< a href = "../components/lesson7.html" > Повернутися до уроку</ > `
 			)
 		}
 	},
@@ -383,8 +422,8 @@ const questions = [
 			const timeColor = getTimerColor(timerValve)
 
 			document.write(
-				`<div style="background-color:${timeColor}; width:${timerValve}%">${timerValve}</div>
-				<a href="../components/lesson7.html">Повернутися до уроку</a>`
+				`< div style = "background-color:${timeColor}; width:${timerValve}%" > ${timerValve}</ >
+			<a href="../components/lesson7.html">Повернутися до уроку</a>`
 			)
 		}
 	},
@@ -407,13 +446,13 @@ const questions = [
 			let player2ScoreTotal = getTotalPlayerScore(edgeNumber)
 
 			alert(
-				`Релультат першого гравця :${player1ScoreTotal},  Результат другого гравця:${player2ScoreTotal}`
+				`Релультат першого гравця : ${player1ScoreTotal}, Результат другого гравця: ${player2ScoreTotal}`
 			)
 
 			if (player1ScoreTotal > player2ScoreTotal) alert('Виграв перший гравець')
 			else if (player1ScoreTotal < player2ScoreTotal) alert('Виграв другий гравець')
 			else alert('Нічия')
-			//document.write(`${}<a href="../components/lesson7.html">Повернутися до уроку</a>`)
+			//document.write(`${} < a href = "../components/lesson7.html" > Повернутися до уроку</ > `)
 		}
 	},
 	// {
@@ -421,7 +460,7 @@ const questions = [
 	// 	question: "",
 	// 	checkFunction: function () {
 	// 		//alert(resultMessage)
-	// 		//document.write(`${}<a href="../components/lesson7.html">Повернутися до уроку</a>`)
+	// 		//document.write(`${} < a href = "../components/lesson7.html" > Повернутися до уроку</ > `)
 	// 	}
 	// },
 ];
