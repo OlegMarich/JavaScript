@@ -60,6 +60,41 @@ const questions = [
 		}
 	},
 	// {
+	// 	id: 5.1_3,
+	// 	question: "Задача 6. Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим фіксованим повідомленням).",
+	// 	checkFunction: function () {
+	// 		function createTable(numbersOfRows, nubersOfColumn) {
+	// 			return numbersOfRows, nubersOfColumn
+	// 		}
+	// 		let numbersOfRows = cellNum
+	// 		let nubersOfColumn = 
+
+
+	// 		for (let i = 0; i < rows; i++) {
+  //       // Створюємо рядок таблиці
+  //       const tr = document.createElement('tr')
+
+  //       for (let j = 0; j < cols; j++) {
+  //           // Створюємо комірку таблиці
+  //           const td = document.createElement('td')
+  //           td.style.border = '1px solid black' // Додаємо стилі
+  //           td.style.padding = '5px'
+
+
+
+			// document.write('<table border="2px">')
+						
+			// let cellNum = 0
+			// for (let cellNum = 1; cellNum <= 7; cellNum++) {
+			// 	document.write(`<td> ${cellNum}  </td>`)
+			// }
+			// document.write('</table>')
+
+			//number of rows and columns
+			//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	// {
 	// 	id: 5.1_,
 	// 	question: "",
 	// 	checkFunction: function () {
@@ -158,7 +193,7 @@ const questions = [
 				if (c > 100) {
 					greaterThan100Count++
 				}
-			
+
 				return {
 					evenCount,
 					positiveCount,
@@ -177,8 +212,45 @@ const questions = [
 					Введені числа ${a} ${b} ${c}.<br>
 					Кількість парних чисел: ${result.evenCount}.<br>	
 					Кількість додатних чисел: ${result.positiveCount}.<br> 
-					Кількість чисел більших за 100: ${result.greaterThan100Count}.</div>
-					<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
+					Кількість чисел більших за 100: ${result.greaterThan100Count}.
+				</div>
+				<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.2_4,
+		question: "Задача 5. Створити окремі функції, які переводять: 1)Сантиметри у дюйми; 2)Кілограми у фунти;	3) Кілометри у милі.",
+		checkFunction: function () {
+			function getInches(numberOfCentimeters, numberOfInches) {
+				return numberOfInches
+			}
+			function getPounds(numberOfKilograms, numberOfPounds) {
+				return numberOfPounds
+			}
+			function getMiles(numberOfKilometers, numberOfMiles) {
+				return numberOfMiles
+			}
+
+			let numberOfCentimeters = parseInt(prompt('Введіть необхідну кількість сантиметрів'))
+			let numberOfKilograms = parseInt(prompt('Введіть необхідну кількість кілограм'))
+			let numberOfKilometers = parseInt(prompt('Введіть необхідну кількість кілометрів'))
+
+			let numberOfInches = numberOfCentimeters * 0.3937
+			let numberOfPounds = numberOfKilograms * 0.2425
+			let numberOfMiles = numberOfKilograms * 3.2808
+
+			let translateInches = getInches(numberOfCentimeters, numberOfInches)
+			let translatePounds = getPounds(numberOfKilograms, numberOfPounds)
+			let translateMiles = getMiles(numberOfKilometers, numberOfMiles)
+
+			document.write(
+				`<div> 
+					${numberOfCentimeters} см. це ${translateInches} дюйми.<br>
+					${numberOfKilograms} кг. це ${translatePounds} фунти.<br>
+					${numberOfKilometers} км. це ${translateMiles} милі.
+				</div>
+				<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`
+			)
 		}
 	},
 	// {
@@ -189,7 +261,6 @@ const questions = [
 	//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
 	// 	}
 	// },
-
 	//========================================
 	{
 		id: 5.3_1,
@@ -203,7 +274,7 @@ const questions = [
 			let b = parseFloat(prompt('Друге число'))
 			let c = parseFloat(prompt('Третє число'))
 			let s = getSum(a, b, c)
-			
+
 			document.write(
 				`Сума чисел = ${s} 
 				<a href="../components/lesson7.html">Повернутися до уроку</a>`
@@ -241,7 +312,7 @@ const questions = [
 			let dollarAmount = parseFloat(prompt('Кількість долларів'))
 
 			let profit = getBankProfit(dollarBuyRate, dollarSaleRate, dollarAmount)
-			
+
 			document.write(
 				`Заробіток банку становить ${profit}`
 					`<a href="../components/lesson7.html">Повернутися до уроку</a>`
@@ -300,7 +371,7 @@ const questions = [
 			if (isSpaceAvalible(elementWidth, containerWidth, elementsNumber))
 				alert('Помістяться')
 			else alert('Не помістяться')
-			
+
 		}
 	},
 	{
