@@ -108,18 +108,49 @@ const questions = [
 
 			showBanner(imageSrc, title, linkUrl)
 
-			//alert(resultMessage)
-			//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
 		}
 	},
-	// {
-	// 	id: 5.1_,
-	// 	question: "",
-	// 	checkFunction: function () {
-	// 		//alert(resultMessage) 
-	// 		//document.write(`<div> ${}</div><div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
-	// 	}
-	// },
+	{
+		id: 5.1_5,
+		question: "Задача 9. Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість від’ємних показів температури.",
+		checkFunction: function () {
+			function countNegativeTemperatures() {
+				let negativeCount = 0
+				let negativeSum = 0
+				let negativeTemperatureList = ''
+				let input
+				while (true) {
+					input = prompt('Введіть температуру (або натисніть "Скасувати" для завершення введення):')
+					if (input === null) {
+						break
+					}
+					let temperature = parseFloat(input)
+					if (temperature < 0) {
+						negativeCount++
+						negativeSum += temperature
+						if (negativeTemperatureList.length > 0) {
+							negativeTemperatureList += ', '
+						}
+						negativeTemperatureList += temperature
+					}
+				}
+				return {
+					count: negativeCount,
+					sum: negativeSum,
+					list: negativeTemperatureList
+				}
+			}
+
+			let negativeData = countNegativeTemperatures()
+			
+			document.write(
+				`<div>Кількість від’ємних температур: ${negativeData.count}</div>
+    		<div>Сума від’ємних температур: ${negativeData.sum}</div>
+    		<div>Від’ємні температури: ${negativeData.list}</div>
+    		<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`
+			)
+		}
+	},
 
 	// ======================================
 	{
