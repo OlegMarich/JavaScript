@@ -142,7 +142,7 @@ const questions = [
 			}
 
 			let negativeData = countNegativeTemperatures()
-			
+
 			document.write(
 				`<div>Кількість від’ємних температур: ${negativeData.count}</div>
     		<div>Сума від’ємних температур: ${negativeData.sum}</div>
@@ -316,14 +316,54 @@ const questions = [
 			showRandomImage()
 		}
 	},
-	// {
-	// 	id: 5.2_,
-	// 	question: "",
-	// 	checkFunction: function () {
-	// 	alert(resultMessage)
-	//document.write(`< div > ${}</ > <div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
-	// 	}
-	// },
+	{
+		id: 5.2_6,
+		question: "Задача 10. Дано покази температур (довільна кількість). Розробити функцію, яка дозволить знайти середнє значення для додатних показів температури.",
+		checkFunction: function () {
+
+			function countPositiveTemperatures() {
+				let positiveCount = 0
+				let positiveSum = 0
+				let positiveTemperatureList = ''
+				let input
+				while (true) {
+					input = prompt('Введіть температуру (або натисніть "Скасувати" для завершення введення):')
+					if (input === null) {
+						break
+					}
+					let temperature = parseFloat(input)
+					if (temperature > 0) {
+						positiveCount++
+						positiveSum += temperature
+						if (positiveTemperatureList.length > 0)
+							positiveTemperatureList += ', ' 
+					}
+					positiveTemperatureList += temperature
+			}
+
+			let average = positiveCount > 0 ? (positiveSum / positiveCount) : 0
+		
+				return {
+					count: positiveCount,
+					sum: positiveSum,
+					list: positiveTemperatureList,
+					average: average
+				}
+			}
+
+			let positiveData = countPositiveTemperatures()
+
+			document.write(
+				`<div>Кількість додатніх температур: ${positiveData.count}</div>
+    		<div>Середнє значення додатних температур: ${positiveData.average}</div>
+    		<div>Додатні температури: ${positiveData.list}</div>
+    		<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`
+			)
+
+			//alert(resultMessage)
+			//document.write(`< div > ${}</ > <div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
+		}
+	},
 	//========================================
 	{
 		id: 5.3_1,
