@@ -359,9 +359,6 @@ const questions = [
     		<div>Додатні температури: ${positiveData.list}</div>
     		<div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`
 			)
-
-			//alert(resultMessage)
-			//document.write(`< div > ${}</ > <div><a href="../components/lesson7.html">Повернутися до уроку</a></div>`)
 		}
 	},
 	//========================================
@@ -523,17 +520,8 @@ const questions = [
 			if (player1ScoreTotal > player2ScoreTotal) alert('Виграв перший гравець')
 			else if (player1ScoreTotal < player2ScoreTotal) alert('Виграв другий гравець')
 			else alert('Нічия')
-			//document.write(`${} < a href = "../components/lesson7.html" > Повернутися до уроку</ > `)
 		}
 	},
-	// {
-	// 	id: 5.3_,
-	// 	question: "",
-	// 	checkFunction: function () {
-	// 		//alert(resultMessage)
-	// 		//document.write(`${} < a href = "../components/lesson7.html" > Повернутися до уроку</ > `)
-	// 	}
-	// },
 ];
 
 function showQuestion(questionId) {
