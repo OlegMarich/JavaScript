@@ -89,22 +89,52 @@ const questions = [
 		question: "Задано деякий діапазон років. Вивести на екран К років починаючи з першого високосного року.",
 		checkFunction: function () {
 			function isLeapYear(year) {
-				return (year % 4 === 0) && (year % 100 !== 0) || year % 400 === 0
+				return (year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)
 			}
 			function getFirstLeapYear(minYear, maxYear) {
 				for (let year = minYear; year < maxYear; year++) {
-					if(isLeapYear()) return year					
+					if (isLeapYear(year)) return year
 				}
 				return -1
 			}
 			function printYearsFromRange(k, minYear, maxYear) {
 				let startLeapYear = getFirstLeapYear(minYear, maxYear)
-				if (startLeapYear === -1)
-					do
-				cument.write(`<div>('Нема високосного року у заданому діапазоні')</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
-				else 
-					for
+				if (startLeapYear === -1) {
+					document.write(`<div>Нема високосного року у заданому діапазоні</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+				}
+				else {
+					if (startLeapYear + k <= maxYear) {
+						for (let y = startLeapYear; y <= startLeapYear + k; y++) {
+							document.write(`<div>${y}<br></div>`)
+						}
+						document.write(`<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+					}
+					else document.write(`<div>Немає стільки років після пешого високосного</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+
+				}
 			}
+			printYearsFromRange(10, 2000, 2024)
+		}
+		//document.write(`<div>${}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+	},
+	{
+		id: 5.3_5,
+		question: "Дано вартість товарів, яку купив користувач. Знайти загальну вартість усіх товарів",
+		checkFunction: function () {
+			let prices = [2, 1, 4, 5, 12, 23, 45, 213, 12]
+			let sum = 0
+
+			for (let i = 0; i < prices.length; i++) {
+				sum += prices[i]
+			}
+			document.write(`<div>${sum}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+		}
+	},
+		{
+		id: 5.3_6,
+		question: "Дано розміри доходу магазину за кожен місяць протягом року. Знайти: <br> 1) Загальний дохід за рік (1-12)<br> 2) Загальний дохід за 1-ше півріччя (1-6)<br> 3) Загальний дохід за 2-ге півріччя <br> 4) Загальний дохід за 2-гий квартал(4-6)<br> 5) Загальний дохід за 2-гий і 3-тій квартал(4-9)",
+		checkFunction: function () {
+			
 		}
 		//document.write(`<div>${}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 	},
