@@ -136,6 +136,8 @@ body {
   justify-self: center;
   align-content: space-between;
   width: 100%;
+  /* height: 300px;
+  overflow-y: auto; */
   padding: 15px;
   gap: 15px;
   background-color: #fff;

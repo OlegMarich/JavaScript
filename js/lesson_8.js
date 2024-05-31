@@ -130,13 +130,107 @@ const questions = [
 			document.write(`<div>${sum}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 		}
 	},
-		{
+	{
 		id: 5.3_6,
-		question: "Дано розміри доходу магазину за кожен місяць протягом року. Знайти: <br> 1) Загальний дохід за рік (1-12)<br> 2) Загальний дохід за 1-ше півріччя (1-6)<br> 3) Загальний дохід за 2-ге півріччя <br> 4) Загальний дохід за 2-гий квартал(4-6)<br> 5) Загальний дохід за 2-гий і 3-тій квартал(4-9)",
+		question: "Дано розміри доходу магазину за кожен місяць протягом року. Знайти: ",
 		checkFunction: function () {
-			
+			let profits = [2, 1, 4, 5, 12, 23, 45, 213, 12, 45, 213, 62]
+			//1) Загальний дохід за рік (1-12)
+			let year = 0
+			for (let month = 0; month < profits.length; month++) {
+				year += profits[month]
+			}
+			//2) Загальний дохід за 1-ше півріччя (1-6)
+			let firstHalfOfTheYear = 0
+			for (let month = 0; month <= 5; month++) {
+				firstHalfOfTheYear += profits[month]
+			}
+			//3) Загальний дохід за 2-ге півріччя
+			let secondHalfOfTheYear = 0
+			for (let month = 6; month <= 11; month++) {
+				secondHalfOfTheYear += profits[month]
+			}
+			//4) Загальний дохід за 2-гий квартал(4-6)
+			let secondQuarter = 0
+			for (let month = 3; month <= 5; month++) {
+				secondQuarter += profits[month]
+			}
+			//5) Загальний дохід за 2-гий і 3-тій квартал(4-9)
+			let secondAndThirdQuarter = 0
+			for (let month = 3; month <= 8; month++) {
+				secondAndThirdQuarter += profits[month];
+			}
+			document.write(`
+			<ul>
+			<h1>Загальний дохід:</h1>
+				<li>За рік: ${year} </li>	
+				<li>За 1-ше півріччя: ${firstHalfOfTheYear}</li>	
+				<li>За 2-ге півріччя: ${secondHalfOfTheYear}</li>	
+				<li>За 2-гий квартал: ${secondQuarter}</li>	
+				<li>За 2-гий і 3-тій квартал: ${secondAndThirdQuarter}</li>
+			</ul>
+
+			<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 		}
-		//document.write(`<div>${}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+	},
+	{
+		id: 5.3_7,
+		question: "Ввести чотири загадані користувачем числа",
+		checkFunction: function () {
+			//const usersNumbersLength = 4
+			// let usersNumbers = []
+			// for (let i = 1; i <= usersNumbersLength; i++) {
+			// 	let num = parseInt(prompt(`Введіть загадане число під номером ${i}`))
+			// 	usersNumbers.push(num)
+			// }
+			function inputUsersNumbers(usersNumbersLength) {
+				let arr = []
+				for (let i = 0; i < usersNumbersLength; i++) {
+					let num = parseInt(prompt(`Введіть загадане число під номером ${i + 1}`))
+					arr.push(num)
+				}
+				return arr
+			}
+			let usersNumbersLength = parseInt(prompt('Скільки Ви хочете ввести чисел?'))
+			let usersNumbers = inputUsersNumbers(usersNumbersLength)
+			document.write(`<div>${usersNumbers}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.3_8,
+		question: "Зробити функцію яка буде генерувати числа у вказаному діапазоні",
+		checkFunction: function () {
+			function generateNumbers(userNumbersLenght, minNumber, maxNumber) {
+				let arr = []
+				for (let i = 0; i < userNumbersLenght; i++) {
+					let num = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+					arr.push(num)
+				}
+				return arr
+			}
+
+			let userNumbersLenght = parseInt(prompt('Скільки бажаєте ввести чисел'))
+			let minNumber = parseInt(prompt('Введіть мінімальне число'))
+			let maxNumber = parseInt(prompt('Введіть максимальне число'))
+			let userNumbers = generateNumbers(userNumbersLenght, minNumber, maxNumber)
+			document.write(`<div>${userNumbers}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.3_9,
+		question: "Створити функцію, яка приймає рік виходу на пенсію та довільну кількість років працівників. Визначти кількість пенсіонерів",
+		checkFunction: function () {
+			function getPensionersNumber(pensionAge, ...workersAges) {
+				let c = 0
+				for (let i = 0; i < workersAges.length; i++) {
+					if(workersAges[i] >= pensionAge)
+						c++
+				}
+				return c
+			}
+			let count = getPensionersNumber(65, 71, 82, 52, 24, 89, 67)
+			document.write(`<div>Кількість пенсіноерів: ${count}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+		}
 	},
 	// {
 	// 	id: 5.3_,
