@@ -181,9 +181,9 @@ const questions = [
 			let buyerMoney = parseInt(prompt('Введіть наявну суму коштів у покупця'))
 			let affordableProducts = []
 
-			for (let i = 0; i < produktPrices.length; i++) {	
-				if (buyerMoney === produktPrices[i]) 
-					affordableProducts.push(produktTitles[i]) 
+			for (let i = 0; i < produktPrices.length; i++) {
+				if (buyerMoney >= produktPrices[i])
+					affordableProducts.push(produktTitles[i])
 			}
 
 			document.write(`
@@ -192,21 +192,51 @@ const questions = [
 			`)
 		}
 	},
-	// {
-	// 	id: 5.1_1,
-	// 	question: "",
-	// 	checkFunction: function () {
+	{
+		id: 5.1_5,
+		question: "Задача 8. Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються випадковим чином значеннями від -500 до 500). Надаючи користувачу можливість вибирати номери елементів  (поки він не відмовиться). Знаходити сумарний виграш.",
+		checkFunction: function () {
+			function generateRandomWin() {
+				return Math.floor(Math.random() * 1001) - 500
+			}
 
-	// 			//document.write(`<div>${}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
-	// 	}
-	// },
+			function getWinNumber() {
+				let winArray = []
+				let winNumbers = true
+				while (winNumbers) {
+					let number = parseInt(prompt('Введіть число'))
+					if (number) {
+						winArray.push(number)
+					} else {
+						winNumbers = false
+					}
+				}
+				return winArray
+			}
+
+			let randomWins = []
+			for (let i = 0; i < 10; i++) {
+				randomWins.push(generateRandomWin())
+			}
+
+			let userIndexes = getWinNumber()
+			let sum = 0
+			for (let i = 0; i < userIndexes.length; i++) {
+				sum += randomWins[userIndexes[i]]
+			}
+			document.write(`
+			<div>Випадкові виграшні числа: ${randomWins.join(', ')}</div>
+			<div>Номери, введені користувачем: ${userIndexes.join(', ')}</div>
+			<div>Сумарний виграш: ${sum}</div>
+			<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+		}
+	},
 
 	// ======================================
 	{
 		id: 5.2_1,
 		question: "Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».",
 		checkFunction: function () {
-
 			function getStudentName() {
 				let arr = []
 				let names = true
@@ -244,7 +274,7 @@ const questions = [
 	},
 	{
 		id: 5.2_2,
-		question: " Дано послідовність оцінок учня. Підрахувати кількість: 1)	двійок, 2) кількість хороших оцінок (добре, відмінно), 3)	кількість оцінок, які нижче середнього.",
+		question: "Дано послідовність оцінок учня. Підрахувати кількість: 1)	двійок, 2) кількість хороших оцінок (добре, відмінно), 3)	кількість оцінок, які нижче середнього.",
 		checkFunction: function () {
 			grades = [5, 4, 3, 4, 5, 2, 4, 3, 4, 5, 4, 5, 3, 2, 5]
 			function countGrades(grades) {
@@ -275,11 +305,69 @@ const questions = [
 
 			let { totalTwo, totalGood, lessThenAverage } = countGrades(grades)
 			document.write(`
-			<div>Кількість двійок: ${totalTwo}</div>
-			<div>Кількість хороших оцінок: ${totalGood}</div>
-			<div>Кількість оцінок, які ниже середнього: ${lessThenAverage}</div>
-			<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>
+				<div>Кількість двійок: ${totalTwo}</div>
+				<div>Кількість хороших оцінок: ${totalGood}</div>
+				<div>Кількість оцінок, які ниже середнього: ${lessThenAverage}</div>
+				<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>
 			`)
+		}
+	},
+	{
+		id: 5.2_3,
+		question: "Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:",
+		checkFunction: function () {
+			let payment = [1200, 800, 100, 150, 200, 800, 900, 200, 500, 700, 900, 1000]
+			//за весь рік;
+			let yearPayments = 0
+			for (let month = 0; month < payment.length; month++) {
+				yearPayments += payment[month]
+			}
+			//у першій половині року;
+			let firstHalfOfTheYear = 0
+			for (let month = 0; month <= 5; month++) {
+				firstHalfOfTheYear += payment[month]
+			}
+			//у другій половині року;
+			let secondHalfOfTheYear = 0
+			for (let month = 6; month <= 11; month++) {
+				secondHalfOfTheYear += payment[month]
+			}
+			//за літо;
+			let summerPayments = 0
+			for (let month = 5; month <= 8; month++) {
+				summerPayments += payment[month]
+			}
+			//за ІІ квартал;
+			let secondQuarter = 0
+			for (let month = 3; month <= 5; month++) {
+				secondQuarter += payment[month]
+			}
+			//за парні місяці (з парними номерами);
+			let evenMonth = 0
+			for (let month = 0; month < payment.length; month += 2) {
+				evenMonth += payment[month]
+			}
+			//за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+			let seasonStartMonth = 0
+			let seasonStartMonths = [2, 5, 8, 11]
+			for (let month of seasonStartMonths) {
+				seasonStartMonth += payment[month]
+			}
+
+			document.write(`
+				<div>		
+				<h1>Всього сплачено:</h1>
+					<ul>
+						<li>За рік: ${yearPayments} </li>	
+						<li>За 1-ше півріччя: ${firstHalfOfTheYear}</li>	
+						<li>За 2-ге півріччя: ${secondHalfOfTheYear}</li>	
+						<li>За літо: ${summerPayments}</li>	
+						<li>За 2-гий квартал: ${secondQuarter}</li>	
+						<li>За парні місяці: ${evenMonth}</li>
+						<li> За місяці, які є початковими у сезоні (весна, літо, осінь, зима): ${seasonStartMonth}</li>
+					</ul>
+				</div>
+				<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 		}
 	},
 	// {
@@ -314,8 +402,6 @@ const questions = [
 			if (isPensiner(age)) document.write(`<div>Пенсіонер</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 			else document.write(`<div>Іди працюй</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 		}
-
-
 	},
 	{
 		id: 5.3_3,
@@ -379,7 +465,6 @@ const questions = [
 			}
 			printYearsFromRange(10, 2000, 2024)
 		}
-		//document.write(`<div>${}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 	},
 	{
 		id: 5.3_5,
@@ -512,7 +597,6 @@ const questions = [
 			let tempCount = getTemperatureNumberInRange(10, 15, 5, 21, 11, 12, 14, 16, 21, 23, 32)
 			document.write(`<div>${tempCount}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 		}
-		//document.write(`<div>${}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 	},
 	{
 		id: 5.3_12,
