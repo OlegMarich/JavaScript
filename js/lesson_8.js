@@ -1,29 +1,293 @@
 const questions = [
 	{
 		id: 5.1_1,
-		question: "",
+		question: "Задача 1. Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка).",
 		checkFunction: function () {
-			//alert(resultMessage)
-			//document.write(`${}`)
+			let rating = [5, 5, 4, 5, 2, 5, 4, 5, 3]
+			let sum = 0
+			let hasTwo = false
+			let hasThree = false
+			for (let i = 0; i < rating.length; i++) {
+				sum += rating[i]
+				if (rating[i] === 2) {
+					hasTwo = true
+				}
+				if (rating[i] === 3) {
+					hasThree = true
+				}
+			}
+			let average = sum / rating.length
+			let studentCategory = ''
+
+			if (hasTwo) {
+				studentCategory = 'Двійочник'
+			} else if (hasThree) {
+				studentCategory = 'Трійочник'
+			} else if (average >= 4) {
+				studentCategory = 'Хорошист'
+			} else if (average >= 4.5) {
+				studentCategory = 'Відмнник'
+			}
+			// if (average >= 4.5) {
+			// 	studentCategory = 'Відмінник'
+			// } else if (average >= 4) {
+			// 	studentCategory = 'Хорошист'
+			// } else if (average >= 3) {
+			// 	studentCategory = 'Трійочник'
+			// } else {
+			// 	studentCategory = 'Двійочник'
+			// }
+
+			document.write(`
+			<div>
+				Середній бал:${average.toFixed(2)},<br>
+				Рівень успішності студента:${studentCategory},
+			</div>
+			<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 		}
 	},
+	{
+		id: 5.1_2,
+		question: "Дано масив, який зберігає кількість відвідувачів магазину протягом тижня.",
+		checkFunction: function () {
+			let numberOfVisitors = []
+			let dayOfTheWeek = ["Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота", "Неділя"]
+
+			for (let i = 0; i < 7; i++) {
+				let visitors = parseInt(prompt(`Кількість відвідувачів в ${dayOfTheWeek[i]}`))
+				numberOfVisitors[i] = visitors
+			}
+			//номери днів, протягом яких кількість відвідувачів була меншою за 20
+			let daysWithFewVisitors = []
+			for (let i = 0; i < numberOfVisitors.length; i++) {
+				if (numberOfVisitors[i] < 20) {
+					daysWithFewVisitors.push(`${dayOfTheWeek[i]} (${numberOfVisitors[i]})`)
+				}
+			}
+			// номери днів, коли кількість відвідувачів була мінімальною;
+			let minVisitors = Math.min(...numberOfVisitors)
+			let daysWithMinVisitors = []
+			for (let i = 0; i < numberOfVisitors.length; i++) {
+				if (numberOfVisitors[i] === minVisitors) {
+					daysWithMinVisitors.push(dayOfTheWeek[i])
+				}
+			}
+
+			// номери днів, коли кількість відвідувачів була максимальною;
+			let maxVisitors = Math.max(...numberOfVisitors)
+			let daysWithMaxVisitors = []
+			for (let i = 0; i < numberOfVisitors.length; i++) {
+				if (numberOfVisitors[i] === maxVisitors) {
+					daysWithMaxVisitors.push(dayOfTheWeek[i])
+				}
+			}
+
+			// загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.
+			let workDaysVisitors = 0
+			let weekendVisitors = 0
+			for (let i = 0; i < numberOfVisitors.length; i++) {
+				if (i >= 0 && i <= 4) {
+					workDaysVisitors += numberOfVisitors[i]
+				} else {
+					weekendVisitors += numberOfVisitors[i]
+				}
+			}
+			document.write(`
+				<div>
+					Дні, кількість відвідувачів була меншою за 20: ${daysWithFewVisitors.join(', ')} <br> 
+					Дні, з найменшою кількістю відвідувачів: ${daysWithMinVisitors.join(', ')} <br> 
+					Дні, з найбільшою кількістю відвідувачів: ${daysWithMaxVisitors.join(', ')} <br> 
+					Кількість відвідувачів в робочі дні: ${workDaysVisitors} <br> 
+					Кількість відвідувачів у вихідні дні: ${weekendVisitors} <br> 
+				</div>
+				<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>
+			`)
+		}
+	},
+	{
+		id: 5.1_3,
+		question: "Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :",
+		checkFunction: function () {
+			function getCarNumber() {
+				let arr = []
+				let numbers = true
+
+				while (numbers) {
+					let carNumber = prompt('Введіть номер автомобіля')
+					if (carNumber) {
+						arr.push(carNumber)
+					} else {
+						numbers = false
+					}
+				}
+				return arr
+			}
+
+			//починаються на букву «А»
+			function getStartFromA(arr) {
+				let countA = 0
+				for (let i = 0; i < arr.length; i++) {
+					if (arr[i].includes('A'))
+						countA++
+				}
+				return countA
+			}
+
+			//перша і остання літери співпадають
+			function isFirstSameWithLast(arr) {
+				let letterCount = 0
+				for (let i = 0; i < arr.length; i++) {
+					let carNumber = arr[i]
+					let firstLetter = carNumber[0]
+					let lastLetter = carNumber[carNumber.length - 1]
+					if (firstLetter === lastLetter) {
+						letterCount++
+					}
+				}
+				return letterCount
+			}
+
+			//складаються з більше ніш 5 символів;
+			function getNumberLenght(arr) {
+				let symbolCount = 0
+				for (let i = 0; i < arr.length; i++) {
+					let carNumber = arr[i]
+					if (carNumber.length > 5) {
+						symbolCount++
+					}
+				}
+				return symbolCount
+			}
+
+			let carNumbers = getCarNumber()
+			let countA = getStartFromA(carNumbers)
+			let countFirstLastLetters = isFirstSameWithLast(carNumbers)
+			let findTheLenght = getNumberLenght(carNumbers)
+
+			document.write(`
+			<div>Кількість номерів, які містять літеру 'A': ${countA}</div>
+			<div>Кількість номерів, які починаються і закінчуються літерою 'A': ${countFirstLastLetters}</div>
+			<div>Кількість номерів, кількість символів яких більша за 5: ${findTheLenght}</div>
+			<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>
+			`)
+		}
+	},
+	{
+		id: 5.1_4,
+		question: "Задача 6. Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які може собі дозволити користувач (кількість грошей задається).",
+		checkFunction: function () {
+			let produktPrices = [1000, 20, 31]
+			let produktTitles = ['Chees', 'Juice', 'Bread']
+			let buyerMoney = parseInt(prompt('Введіть наявну суму коштів у покупця'))
+			let affordableProducts = []
+
+			for (let i = 0; i < produktPrices.length; i++) {	
+				if (buyerMoney === produktPrices[i]) 
+					affordableProducts.push(produktTitles[i]) 
+			}
+
+			document.write(`
+			<div>Товари, які може собі дозволити покупець: ${affordableProducts.join(', ')}</div>
+			<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>
+			`)
+		}
+	},
+	// {
+	// 	id: 5.1_1,
+	// 	question: "",
+	// 	checkFunction: function () {
+
+	// 			//document.write(`<div>${}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+	// 	}
+	// },
 
 	// ======================================
 	{
 		id: 5.2_1,
-		question: "",
+		question: "Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».",
 		checkFunction: function () {
-			//alert(resultMessage)
-			//document.write(`${}`)
+
+			function getStudentName() {
+				let arr = []
+				let names = true
+
+				while (names) {
+					let name = prompt('Введіть ім’я студента')
+					if (name) {
+						arr.push(name)
+					} else {
+						names = false
+					}
+				}
+				return arr
+			}
+
+			function countName(arr, nameToCount) {
+				let count = 0
+				for (let i = 0; i < arr.length; i++) {
+					if (arr[i] === nameToCount) {
+						count++
+					}
+				}
+				return count
+			}
+
+			let studentNames = getStudentName()
+			let requiredNameCount = countName(studentNames, 'Іван')
+
+			document.write(`
+			<div>
+				Ім'я "Іван" зустрічається ${requiredNameCount} раз.
+			</div>
+			<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.2_2,
+		question: " Дано послідовність оцінок учня. Підрахувати кількість: 1)	двійок, 2) кількість хороших оцінок (добре, відмінно), 3)	кількість оцінок, які нижче середнього.",
+		checkFunction: function () {
+			grades = [5, 4, 3, 4, 5, 2, 4, 3, 4, 5, 4, 5, 3, 2, 5]
+			function countGrades(grades) {
+				let totalTwo = 0
+				let totalGood = 0
+				let lessThenAverage = 0
+				let sum = 0
+
+				for (let i = 0; i < grades.length; i++) {
+					sum += grades[i]
+				}
+
+				let average = sum / grades.length
+
+				for (let i = 0; i < grades.length; i++) {
+					if (grades[i] === 2) {
+						totalTwo++
+					}
+					if (grades[i] === 4 || grades[i] === 5) {
+						totalGood++
+					}
+					if (grades[i] < average) {
+						lessThenAverage++
+					}
+				}
+				return { totalTwo, totalGood, lessThenAverage }
+			}
+
+			let { totalTwo, totalGood, lessThenAverage } = countGrades(grades)
+			document.write(`
+			<div>Кількість двійок: ${totalTwo}</div>
+			<div>Кількість хороших оцінок: ${totalGood}</div>
+			<div>Кількість оцінок, які ниже середнього: ${lessThenAverage}</div>
+			<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>
+			`)
 		}
 	},
 	// {
 	// 	id: 5.2_1,
 	// 	question: "",
 	// 	checkFunction: function () {
+	// 		//document.write(`<div>${}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 	// 	}
-	// 	//alert(resultMessage)
-	// 	//document.write(`${}`)
 	// },
 	//========================================
 	{
@@ -51,7 +315,7 @@ const questions = [
 			else document.write(`<div>Іди працюй</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 		}
 
-		//document.write(`<div>${}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+
 	},
 	{
 		id: 5.3_3,
@@ -132,7 +396,7 @@ const questions = [
 	},
 	{
 		id: 5.3_6,
-		question: "Дано розміри доходу магазину за кожен місяць протягом року. Знайти: ",
+		question: "Дано розміри доходу магазину за кожен місяць протягом року. Знайти:",
 		checkFunction: function () {
 			let profits = [2, 1, 4, 5, 12, 23, 45, 213, 12, 45, 213, 62]
 			//1) Загальний дохід за рік (1-12)
@@ -223,7 +487,7 @@ const questions = [
 			function getPensionersNumber(pensionAge, ...workersAges) {
 				let c = 0
 				for (let i = 0; i < workersAges.length; i++) {
-					if(workersAges[i] >= pensionAge)
+					if (workersAges[i] >= pensionAge)
 						c++
 				}
 				return c
@@ -232,13 +496,91 @@ const questions = [
 			document.write(`<div>Кількість пенсіноерів: ${count}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 		}
 	},
+	{
+		id: 5.3_11,
+		question: "Дано покази температур. Підрахувати пількість показників у заданому діапазоні",
+		checkFunction: function () {
+			//Знайдемо кількість показів між 10 і 15 градусів
+			function getTemperatureNumberInRange(minTemp, maxTemp, ...tempList) {
+				let count = 0
+				for (let i = 0; i < tempList.length; i++) {
+					if (tempList[i] >= minTemp && tempList[i] <= maxTemp)
+						count++
+				}
+				return count
+			}
+			let tempCount = getTemperatureNumberInRange(10, 15, 5, 21, 11, 12, 14, 16, 21, 23, 32)
+			document.write(`<div>${tempCount}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+		}
+		//document.write(`<div>${}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+	},
+	{
+		id: 5.3_12,
+		question: "Дано покази теиператур (довільна кількість). Розробити функціюб яка дозволить знайти середнє значення для додатних показів температури.",
+		checkFunction: function () {
+			function getPositivValNumber(...tempList) {
+				let count = 0
+				let sum = 0
+				for (let i = 0; i < tempList.length; i++) {
+					if (tempList[i] > 0) {
+						sum += tempList[i]
+						count++
+					}
+				}
+				return sum / count
+			}
+
+			function inputTemperatures(tempNumber) {
+				let arr = []
+				for (let i = 0; i < tempNumber; i++) {
+					let temp = parseInt(prompt(`Введіть температурний показник ${i + 1}`))
+					arr.push(temp)
+				}
+				return arr
+			}
+
+			//let average = getPositivValNumber(3, -9, 23, 0, -8)
+			let listOfTemperatures = inputTemperatures(3)
+			let average = getPositivValNumber(...listOfTemperatures)
+			document.write(`<div>${average}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
+		}
+	},
 	// {
-	// 	id: 5.3_,
-	// 	question: "",
+	// 	id: 5.3_12,
+	// 	question: "Дано покази температур (довільна кількість). Розробити функцію, яка дозволить знайти середнє значення для додатних показів температури.",
 	// 	checkFunction: function () {
+	// 		function generateRandomTemperature() {
+	// 			return Math.floor(Math.random() * 71) - 30
+	// 		}
+
+	// 		function generateTemperatureArray(length) {
+	// 			const temperatures = []
+	// 			for (let i = 0; i < length; i++) {
+	// 				temperatures.push(generateRandomTemperature())
+	// 			}
+	// 			return temperatures
+	// 		}
+
+	// 		function getPositiveAverage(...tempList) {
+	// 			let count = 0
+	// 			let sum = 0
+	// 			for (let i = 0; i < tempList.length; i++) {
+	// 				if (tempList[i] > 0) {
+	// 					sum += tempList[i]
+	// 					count++
+	// 				}
+	// 			}
+	// 			return count > 0 ? sum / count : 0
+	// 		}
+
+	// 		const tempList = generateTemperatureArray(10) // Генеруємо масив з 10 температур
+	// 		const average = getPositiveAverage(...tempList)
+
+	// 		document.write(`<div>Список температур: ${tempList.join(', ')}</div>`)
+	// 		document.write(`<div>Середнє значення додатних температур: ${average}</div>`)
+	// 		document.write(`<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 	// 	}
-	// 	//document.write(`<div>${}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
-	// },
+	// }
 ];
 
 function showQuestion(questionId) {
