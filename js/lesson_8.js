@@ -200,6 +200,11 @@ const questions = [
 				return Math.floor(Math.random() * 1001) - 500
 			}
 
+			let randomWins = []
+			for (let i = 0; i < 10; i++) {
+				randomWins.push(generateRandomWin())
+			}
+
 			function getWinNumber() {
 				let winArray = []
 				let winNumbers = true
@@ -207,6 +212,7 @@ const questions = [
 					let number = parseInt(prompt('Введіть число'))
 					if (number) {
 						winArray.push(number)
+
 					} else {
 						winNumbers = false
 					}
@@ -214,12 +220,8 @@ const questions = [
 				return winArray
 			}
 
-			let randomWins = []
-			for (let i = 0; i < 10; i++) {
-				randomWins.push(generateRandomWin())
-			}
-
 			let userIndexes = getWinNumber()
+
 			let sum = 0
 			for (let i = 0; i < userIndexes.length; i++) {
 				sum += randomWins[userIndexes[i]]
@@ -231,8 +233,7 @@ const questions = [
 			<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 		}
 	},
-
-	// ======================================
+	// ========================================================================================================================================
 	{
 		id: 5.2_1,
 		question: "Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».",
@@ -370,14 +371,7 @@ const questions = [
 				<div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
 		}
 	},
-	// {
-	// 	id: 5.2_1,
-	// 	question: "",
-	// 	checkFunction: function () {
-	// 		//document.write(`<div>${}</div><div><a href="../components/lesson8.html">Повернутися до уроку</a></div>`)
-	// 	}
-	// },
-	//========================================
+	// ========================================================================================================================================
 	{
 		id: 5.3_1,
 		question: "Створити функцію яка дозволяє визначити чи вказаний місяць (1-12) є літнім (6-8)",
