@@ -1,10 +1,66 @@
 const questions = [
 	{
 		id: 5.1_1,
-		question: "",
+		question: "1. Користувач вводить кількість елементів. Створити масив, що складається з вказаної кількості елементів заповнених нулями.",
 		checkFunction: function () {
-			//document.write(`<div>${}</div><div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
+			let userNumber = parseInt(prompt('Введіть необхідну кількість чисел'))
+			let elementsArr = []
+
+			if (userNumber > 0) {
+				for (let i = 0; i < userNumber; i++) {
+					let number = 0
+					elementsArr.push(number)
+				}
+			}
+			document.write(`<div>${elementsArr.join(', ')}</div><div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
 		}
+	},
+	{
+		id: 5.1_2,
+		question: "3. Користувач вводить кількість елементів. Створити масив, у якому перші 5 елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть необхідну кількість чисел'))
+			let elementsArr = []
+
+			if (userNumber > 0) {
+				for (let i = 0; i < 5; i++) {
+					elementsArr.push(1)
+				}
+			}
+			if (userNumber > 0) {
+				for (let i = 5; i < userNumber; i++) {
+					elementsArr.push(7)
+				}
+			}
+			document.write(`<div>${elementsArr.join(', ')}</div><div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.1_3,
+		question: "4.Дано масив елементів. Вивести на екран елементи, що більші за 100",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть необхідну кількість чисел'))
+			let elementsArr = []
+
+			for (let i = 0; i < userNumber; i++) {
+				let number = 1 + Math.floor(Math.random() * 200)
+				elementsArr.push(number)
+			}
+
+			let numbersGreeterThan100 = []
+
+			for (const number of elementsArr) {
+				if (number > 100) {
+					numbersGreeterThan100.push(number)
+				}
+			}
+			document.write(`
+				<div>Числа більші за 100: ${numbersGreeterThan100.join(', ')}</div>
+				<div>Всі числа: ${elementsArr.join(', ')}</div>
+				<div><a href="../components/lesson9.html">Повернутися до уроку</a></div>
+				`)
+		}
+
 	},
 	// {
 	// 	id: 5.1_,
@@ -17,9 +73,21 @@ const questions = [
 	// ========================================================================================================================================
 	{
 		id: 5.2_1,
-		question: "",
+		question: "2. Користувач вводить кількість елементів. Створити масив, у якому перша половина заповнена 1-цями, а друга заповнена 7-ками.",
 		checkFunction: function () {
-			//document.write(`<div>${}</div><div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
+			let userNumber = parseInt(prompt('Введіть свою кількість елементів'))
+			let elementsArr = []
+
+			if (userNumber > 0) {
+				let half = Math.floor(userNumber / 2)
+				for (let i = 0; i < half; i++) {
+					elementsArr.push(1)
+				}
+				for (let i = half; i < userNumber; i++) {
+					elementsArr.push(7)
+				}
+			}
+			document.write(`<div>${elementsArr.join(', ')}</div><div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
 		}
 	},
 	// {
