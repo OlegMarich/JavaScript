@@ -62,13 +62,58 @@ const questions = [
 		}
 
 	},
-	// {
-	// 	id: 5.1_,
-	// 	question: "",
-	// 	checkFunction: function () {
-	// 	}
-	// 	//document.write(`<div>${}</div><div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
-	// },
+	{
+		id: 5.1_4,
+		question: "7.Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки.",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть кількість чисел які треба згенерувати'))
+			let priceArr = []
+
+			for (let i = 0; i < userNumber; i++) {
+				let number = 1 + Math.floor(Math.random() * 10000)
+				priceArr.push(number)
+			}
+
+			let priceDiscount = priceArr.map((number) => {
+				if (number > 1000) {
+					return (number * 0.7).toFixed(2)
+				}
+			}
+			)
+
+			document.write(`
+				<div>Вибрані ціни: ${priceArr.join(', ')}</div>
+				<div>Ціни більші за 1000 грн. після знижки 30%: ${priceDiscount.join(', ')}</div>
+				<div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.1_5,
+		question: "8. Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»",
+		checkFunction: function () {
+			let carPlatesUA = [
+				"АК1234АК", "АА2345АА", "АВ3456АВ", "АЕ4567АЕ", "АН5678АН",
+				"АІ6789АІ", "АМ7890АМ", "АО8901АО", "АР9012АР", "АТ0123АТ",
+				"ВА1234ВА", "ВВ2345ВВ", "ВС3456ВС", "ВЕ4567ВЕ", "ВН5678ВН",
+				"ВІ6789ВІ", "ВК7890ВК", "ВМ8901ВМ", "ВО9012ВО", "АХ0123АХ",
+				"ВТ1234ВТ", "ВХ2345ВХ", "СА3456СА", "СВ4567СВ", "СЕ5678СЕ",
+				"СН6789СН", "ІА7890ІА", "ІВ8901ІВ", "ІЕ9012ІЕ", "ІН0123ІН",
+				"ХС1234ХС"
+			];
+			let carPlatesA = []
+			for (const number of carPlatesUA) {
+				if (number[0] === 'А') {
+					carPlatesA.push(number)
+				}
+			}
+			document.write(`
+				<div>Номерні знаки: ${carPlatesUA.join(', ')}</div>
+				<div>Номерні знаки що починаються з А: ${carPlatesA.join(', ')}</div>
+				<div><a href="../components/lesson9.html">Повернутися до уроку</a></div>
+				`)
+		}
+
+	},
 
 	// ========================================================================================================================================
 	{
@@ -90,13 +135,102 @@ const questions = [
 			document.write(`<div>${elementsArr.join(', ')}</div><div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
 		}
 	},
-	// {
-	// 	id: 5.2_,
-	// 	question: "",
-	// 	checkFunction: function () {
-	// 	}
-	// 	//document.write(`<div>${}</div><div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
-	// },
+	{
+		id: 5.2_2,
+		question: "5.Дано масив елементів. Знайти добуток додатних елементів",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть кількість чисел які треба згенерувати'))
+			let elementsArr = []
+
+			for (let i = 0; i < userNumber; i++) {
+				let number = 1 + Math.floor(Math.random() * 200) - 100
+				elementsArr.push(number)
+			}
+
+			let positiveElements = []
+			let product = 1
+			for (const number of elementsArr) {
+				if (number > 0) {
+					positiveElements.push(number)
+					product *= number
+				}
+			}
+			document.write(`
+					<div>Перелік згенерованих чисел: ${elementsArr.join(', ')}</div>
+					<div>Сума чисел більших за 0: ${product}</div>
+					<div><a href="../components/lesson9.html">Повернутися до уроку</a></div>
+			`)
+		}
+	},
+	{
+		id: 5.2_3,
+		question: "6.Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть кількість чисел які треба згенерувати'))
+			let elementsArr = []
+
+			for (let i = 0; i < userNumber; i++) {
+				let number = 1 + Math.floor(Math.random() * 200)
+				elementsArr.push(number)
+			}
+			let firstElement = elementsArr[0]
+			let modifiedElementsArr = []
+
+			for (let i = 0; i < elementsArr.length; i++) {
+				if (elementsArr[i] > firstElement) {
+					modifiedElementsArr.push(elementsArr[i] * 2);
+				}
+			}
+
+			document.write(`
+				<div>Всі випадкові числа: ${elementsArr.join(', ')}</div>
+				<div>Результат множення на 2 чисел більших за преше:${modifiedElementsArr.join(', ')}</div>
+				<div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
+
+		}
+	},
+	{
+		id: 5.2_4,
+		question: "9. Дано масив імен. Сформувати масив з перших літер цих імен.",
+		checkFunction: function () {
+			let names = [
+				"Марія", "Павло", "Анна", "Федір", "Григорій",
+				"Юлія", "Зеновій", "Сергій", "Катерина", "Євгенія",
+				"Дарина", "Богдан", "Ірина", "Тетяна", "Олена",
+				"Назар", "Леонід", "Роксолана", "Уляна", "Христина",
+				"Цезар", "Черемис", "Шарлотта", "Щастя", "Йосип",
+				"Жанна", "Ярослав"
+			];
+
+			let firstLettersOfnames = names.map((name) => name[0])
+			document.write(`
+				<div>Перші літери вибраних імен: ${firstLettersOfnames.join(', ')}</div>
+				<div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.2_5,
+		question: "10. Дано масив цін у грн. Податок складає 20%. Сформувати масив, який буде містити величину сплаченого податку у грн.",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть кількість цін які треба згенерувати'))
+			let elementsArr = []
+
+			for (let i = 0; i < userNumber; i++) {
+				let number = 1 + Math.floor(Math.random() * 10000)
+				elementsArr.push(number)
+			}
+
+			let taxCount = elementsArr.map((price) => (price * 0.2).toFixed(2))
+			let sum = taxCount.reduce((total, tax) => total + parseFloat(tax), 0).toFixed(2)
+
+			document.write(` 
+				<div>Ціни: ${elementsArr.join(', ')}</div>
+        <div>Сплачений податок: ${taxCount.join(', ')}</div>
+        <div>Сума податоку: ${sum}</div>
+				<div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
+		}
+
+	},
 	// ========================================================================================================================================
 	{
 		id: 5.3_1,
@@ -261,7 +395,6 @@ const questions = [
 			const userScale = userAnswer === 1 ? getResultByScale1 : getResultByScale2
 			printByScale(scores, userScale)
 		}
-		//document.write(`<div>${}</div><div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
 	},
 	{
 		id: 5.3_6,
