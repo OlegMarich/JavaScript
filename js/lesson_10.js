@@ -83,6 +83,14 @@ const questions = [
 			document.write(`<div>${uniquePrices}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 		}
 	},
+		{
+		id: 5.3_6,
+		question: "Дано масив чисел, що містять нулі. Створити масив, що складається з елементів між цими нулями",
+		checkFunction: function () {
+			let arr = [23, 1, 4, 0, 4, 6, 9, 0, 2, 12, 75]
+			//document.write(`<div>${}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
 	// {
 	// 	id: 5.2_1,
 	// 	question: "",
