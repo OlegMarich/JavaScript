@@ -37,7 +37,6 @@ const questions = [
 			document.write(`<div>${firstLettersArray.join(', ')}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 			//document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 		}
-
 	},
 	{
 		id: 5.3_3,
@@ -83,13 +82,58 @@ const questions = [
 			document.write(`<div>${uniquePrices}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 		}
 	},
-		{
+	{
 		id: 5.3_6,
 		question: "Дано масив чисел, що містять нулі. Створити масив, що складається з елементів між цими нулями",
 		checkFunction: function () {
 			let arr = [23, 1, 4, 0, 4, 6, 9, 0, 2, 12, 75]
-			
-			//document.write(`<div>${}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+
+			let firstZeroIndex = arr.indexOf(0)
+			let secondZeroIndex = arr.lastIndexOf(0)
+			let resArray = arr.slice(firstZeroIndex + 1, secondZeroIndex)
+
+			document.write(`<div>${resArray}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.3_7,
+		question: "Дано масив чисел, що містять нулі. Створити масив, що складається з елементів між цими нулями",
+		checkFunction: function () {
+			let arr = [23, 1, 4, 0, 4, 6, 9, 0, 2, 12, 0, 2, 11, 8, 4, 53]
+
+			let firstZeroIndex = arr.indexOf(0)
+			let secondZeroIndex = arr.indexOf(0, firstZeroIndex + 1)
+
+			let resArray = arr.slice(firstZeroIndex + 1, secondZeroIndex)
+			document.write(`<div>${resArray}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.3_8,
+		question: "Дано масив з віком відвідувачів.	Визначити індекс першого пенсіонера (>=65)",
+		checkFunction: function () {
+			let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+			let firstPensionerIndex = ages.findIndex((age) => age >= 65)
+			document.write(`<div>${firstPensionerIndex}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.3_9,
+		question: "Дано масив оцінок двійочника. Визначити першу поганну оцінку (<4)",
+		checkFunction: function () {
+			let scores = [8, 9, 12, 4, 7, 1, 10, 8, 9, 2]
+			let bedScore = scores.find(score => score < 4)
+			//let bedScore = scores.findLast(score => score < 4)
+			document.write(`<div>${bedScore}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+		{
+		id: 5.3_11,
+		question: "Дано масив років відвідувачів басейну. Визначити вік останнього пенсіонера (вік більше або рівно 65 років)",
+		checkFunction: function () {
+			let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+			let lastPensionerAge = ages.findLast((age) => age >= 65)
+			document.write(`<div>${lastPensionerAge}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 		}
 	},
 	// {
