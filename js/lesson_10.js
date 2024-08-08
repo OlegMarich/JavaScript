@@ -127,7 +127,7 @@ const questions = [
 			document.write(`<div>${bedScore}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 		}
 	},
-		{
+	{
 		id: 5.3_11,
 		question: "Дано масив років відвідувачів басейну. Визначити вік останнього пенсіонера (вік більше або рівно 65 років)",
 		checkFunction: function () {
@@ -136,8 +136,41 @@ const questions = [
 			document.write(`<div>${lastPensionerAge}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 		}
 	},
+	{
+		id: 5.3_12,
+		question: "Дано масив кімнат, які звернулися на рецепцію. Визначити чи зверталися з кімнати номер 5.",
+		checkFunction: function () {
+			let rooms = [12, 15, 7, 23, 45, 21, 35, 8, 10]
+			if (rooms.includes(5))
+				document.write(`<div>Звертався</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+			else document.write(`<div>Не звертався</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.3_13,
+		question: "Матиматичні приклади на основі за допомогою метода reduse",
+		checkFunction: function () {
+			//Знайти суму елементів масиву
+			let arr = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+			let sum = arr.reduce((prewSum, el, index, baseRef) => prewSum + el)
+			document.write(`<div>Сума елементів масиву: ${sum}</div>`)
+
+			//Знайти добуток елементів масиву
+			let prod = arr.reduce((prevProd, el) => prevProd * el)
+			document.write(`<div>Добуток елементів масиву: ${prod}</div>`)
+
+			//Знайти добуток від'ємних елементів масиву
+			let prodNegative = arr.reduce((prevProd, el) => (el < 0 ? prevProd * el : prevProd), 1)
+			document.write(`<div>Добуток від'ємних елементів масиву: ${prodNegative}</div>`)
+
+			//Знайти суму парних елементів
+			let evenNumber = arr.reduce((prevSum, el) => el % 2 === 0 ? prevSum + el : prevSum, 0)
+			document.write(`<div>Сума парних елементів: ${evenNumber}</div>`)
+			document.write(`<div></div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
 	// {
-	// 	id: 5.2_1,
+	// 	id: 5.3_,
 	// 	question: "",
 	// 	checkFunction: function () {
 	// 		//document.write(`<div>${}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
