@@ -38,6 +38,16 @@ body {
 .page__lessons {
 }
 .lessons__content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 15px;
+  row-gap: 5px;
+  @media (max-width: 767.98px) {
+    grid-template-columns: repeat(2, auto);
+  }
+  @media (max-width: 419.98px) {
+    grid-template-columns: auto;
+  }
 }
 .lesson__link {
   display: inline-block;
