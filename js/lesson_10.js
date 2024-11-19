@@ -148,10 +148,14 @@ const questions = [
 	},
 	{
 		id: 5.3_13,
-		question: "Матиматичні приклади на основі за допомогою метода reduse",
+		question: "Матиматичні приклади на основі за допомогою метода reduсe",
 		checkFunction: function () {
-			//Знайти суму елементів масиву
+
 			let arr = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+			let scores = [8, 9, 2, 4, 7, 1, 10, 8, 9, 2]
+			let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+
+			//Знайти суму елементів масиву
 			let sum = arr.reduce((prewSum, el, index, baseRef) => prewSum + el)
 			document.write(`<div>Сума елементів масиву: ${sum}</div>`)
 
@@ -166,7 +170,91 @@ const questions = [
 			//Знайти суму парних елементів
 			let evenNumber = arr.reduce((prevSum, el) => el % 2 === 0 ? prevSum + el : prevSum, 0)
 			document.write(`<div>Сума парних елементів: ${evenNumber}</div>`)
+
+			//Підрахувати кількість 7
+			let numberOfSeven = arr.reduce((prevNuberOfSeven, el) => el === 7 ? prevNuberOfSeven + 1 : prevNuberOfSeven, 0)
+			document.write(`<div>Kількість 7: ${numberOfSeven}</div>`)
+
+			//Знайти максимальний елемент
+			//let max = Math.max(...arr) найкраще рішення
+			let max = arr.reduce((prevMax, el) => (el > prevMax ? el : prevMax))
+			document.write(`<div>Найбільший елемент: ${max}</div>`)
+
+			//Знайти елемент максимальний серед від'ємних
+			let minusMax = arr.reduce(
+				(prevMax, el) => (el < 0 && el > prevMax ? el : prevMax),
+				-Infinity
+			)
+			document.write(`<div>Найбільший від'ємний елемент: ${minusMax}</div>`)
+
+			//Дано масив оцінок учня. Підрахувати кількість поганних оцінок
+			let res = scores.reduce(
+				(prevCount, score) => (score < 4 ? prevCount + 1 : prevCount), 0
+			)
+			document.write(`<div>Кількість поганних оцінок: ${res}</div>`)
+
+			//Дано масив показів температур за рік (12 місяців). Підрахувати кількість додатних значень.
+			let positiveNumberCount = arr.reduce((prevCount, temp) => temp > 0 ? prevCount + 1 : prevCount, 0)
+			document.write(`<div>Додатніх значень температури за рік: ${positiveNumberCount}</div>`)
+
+			//Дано масив чисел. Підрахувати суму елементів таких що <20 і зняходяться в першів половині масиву, або >40 і знаходяться в другій половині масиву
+			let halfLength = arr.length / 2
+			let sumLarger = arr.reduce(
+				(prevSum, el, index) => (index < halfLength && el < 20) || (index >= halfLength && el > 40) ? prevSum + el : prevSum, 0
+			)
+			document.write(`<div>Сума елементів що <20 і зняходяться в першів половині масиву<br>або >40 і знаходяться в другій половині масиву: ${sumLarger}</div>`)
+
+			//Дано масив років відвідувачів басейну. Визначити середній вік відвідувачів.
+			let s = ages.reduce(
+				(prevSum, age) => prevSum + age
+			)
+			let average = s / ages.length
+			document.write(`<div>Cередній вік відвідувачів басейну: ${average}</div>`)
+
+
 			document.write(`<div></div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.3_14,
+		question: "Матиматичні приклади на основі метода 'filter'",
+		checkFunction: function () {
+			let temperatureList = [-10, 3, -21, 10, 18]
+
+			//Дано покази температур термометра за місяць. Сформувати покази додатніх значень
+			let positiveArray = temperatureList.filter((temp) => temp > 0)
+			document.write(`<div>Додатні покази:${positiveArray}</div>`)
+
+			//Сформуватипокази тільки значень, які знаходяться між 10 і 15
+			let resArr = temperatureList.filter((temp) => temp >= 10 && temp <= 15)
+			document.write(`<div>Значеня, які знаходяться між 10 і 15: ${resArr}</div>`)
+
+			//Дано масив цін.Сформувати масив який складається з цін більших за 500
+			let prices = [124, 6700, 2345, 322, 99, 324, 900]
+			let restArr = prices.filter((price) => price > 500)
+			document.write(`<div>${restArr}</div>`)
+
+			//Задача 4. Дано масив імен учнів. Сформувати масив, які починаються на букви : 'A', 'B', 'J', 'S'
+			let names = ['Nona', 'John', 'Sara', 'Peter', 'Monica', 'Andrew', 'Niko']
+			const searchLetters = ['A', 'B', 'J', 'S']
+			let letterArr = names.filter((name) => searchLetters.includes(name[0]))
+			document.write(`<div>${letterArr}</div>`)
+			//document.write(`<div>${}</div>`)
+			//document.write(`<div>${}</div>`)
+
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.3_15,
+		question: "Матиматичні приклади на основі метода 'some', 'every'",
+		checkFunction: function () {
+			// Дано масив показників термометра протягом місяця. З’ясувати, чи є серед них є дні, коли температура була меншою за 5 градусів.
+			let temperatures = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+			if (temperatures.some((t) => t < 5))
+				document.write(`<div>Була</div>`)
+			else document.write(`<div>Ні</div>`)
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 		}
 	},
 	// {
