@@ -1,9 +1,47 @@
 const questions = [
 	{
+	
+	
+		// 								3)Сформувати список з тих цін, які більші за попереднє значення
+		// 								4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+		// 								5)Підрахувати кількість змін цін
+		// 								6)Визначити, чи є ціна, що менше 1000
+		// 								7)Визначати, чи усі ціни більше за 1000
+		// 								8)Підрахувати кількість цін, що більше за 1000
+		// 								9)Підрахувати суму цін, що більше за 1000
+		// 								10)Знайти першу ціну, що більше за 1000
+		// 								11)Знайти індекс першої ціни, що більше за 1000
+		// 								12)Знайти останню ціну, що більше за 1000
+		// 								13)Знайти індекс останньої ціни, що більше за 1000  
+
+
 		id: 5.1_1,
-		question: "",
+		question: "Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)",
 		checkFunction: function () {
-			//document.write(`<div>${}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+			//Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)
+			let userNumber = parseInt(prompt('Введіть кількість чисел які треба згенерувати'))
+			let prices = []
+
+			for (let i = 0; i < userNumber; i++) {
+				let number = 1 + Math.floor(Math.random() * 10000)
+				prices.push(number)
+			}
+			document.write(`<div>Згенеровані ціни: ${prices.join(', ')}</div>`)
+
+			//1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+			let priceLarger = []
+			for (let i = 0; i < prices.length; i++) {
+				if (prices[i] > 1000)
+					priceLarger.push(prices[i])
+			}
+			document.write(`<div>Ціни що більші за 1000 грн: ${priceLarger.join(', ')}</div>`)
+
+			//2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+			
+			//document.write(`<div>${}</div>`)
+
+
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 		}
 	},
 	// ========================================================================================================================================
@@ -211,7 +249,6 @@ const questions = [
 			let average = s / ages.length
 			document.write(`<div>Cередній вік відвідувачів басейну: ${average}</div>`)
 
-
 			document.write(`<div></div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 		}
 	},
@@ -252,18 +289,104 @@ const questions = [
 			// Дано масив показників термометра протягом місяця. З’ясувати, чи є серед них є дні, коли температура була меншою за 5 градусів.
 			let temperatures = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
 			if (temperatures.some((t) => t < 5))
-				document.write(`<div>Була</div>`)
-			else document.write(`<div>Ні</div>`)
+				document.write(`<div>Була температура була меншою за 5 градусів</div>`)
+			else document.write(`<div>Ні, не  було температури меншої за 5 градусів</div>`)
+
+			//Дано масив цін. Визначити чи є серед вказаних цін товарів ті, які дорожчі за 1000
+			let prices = [124, 6700, 2345, 322, 99, 324, 900]
+			if (prices.some(price => price > 1000))
+				document.write(`<div>Так, є такі товари, які дорожчі за 1000 грн.</div>`)
+			else document.write(`<div>Ні, нема таких товарів, які дорожчі за 1000 грн.</div>`)
+
+			//Дано масив оцінок. 
+			let scores = [8, 9, 12, 4, 7, 1, 10, 8, 9, 2]
+			//Визначити чи він є хорошистом
+			if (scores.every(score => score >= 7))
+				document.write(`<div>Так, він є хорошистом,</div>`)
+			else document.write(`<div>Ні, він не є хорошистом,</div>`)
+
+			//Визначити чи він є двійочником
+			if (scores.some(score => score < 4))
+				document.write(`<div>Так, він є двійочником.</div>`)
+			else document.write(`<div>Ні, він є хорошистом.</div>`)
+
+			//Дано масив років відвідувачів басейну. Визначити чи були пенсіонери.
+			let ages = [21, 13, 45, 68, 23, 74, 66, 9, 25, 56, 69]
+			if (ages.some(age => age >= 60))
+				document.write(`<div>Так, серед відвідувачів були пенсіонери.</div>`)
+			else document.write(`<div>Ні, серед відвідувачів не було пенсіонерів.</div>`)
+
+			// Дано масив показників термометра протягом місяця. З’ясувати, чи усі показники є більшими за 10 градусів.
+			let temp = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+			if (temp.every(temperatur => temperatur >= 10))
+				document.write(`<div>Так, всі показники температури є більшими за 10.</div>`)
+			else document.write(`<div>Ні, не всі показники температури є більшими за 10.</div>`)
+
 			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 		}
 	},
-	// {
-	// 	id: 5.3_,
-	// 	question: "",
-	// 	checkFunction: function () {
-	// 		//document.write(`<div>${}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
-	// 	}
-	// },
+	{
+		id: 5.3_16,
+		question: "Матиматичні приклади на основі метода 'sort'",
+		checkFunction: function () {
+			// Упорядкувати масив чисел за зростанням.
+			let arr = [-10, -9, 5, 13, 17, 16, 18, 19, 21, 11, 7, -4]
+			// arr.sort((el1, el2) => {
+			// 	if (el1 > el2) return 1
+			// 	if (el1 < el2) return -1
+			// 	return 0
+			// })
+			arr.sort((el1, el2) => el1 - el2)
+			document.write(`<div>${arr}</div>`)
+
+			// Упорядкувати масив чисел за зростанням.
+			arr.sort((el1, el2) => el2 - el1)
+			document.write(`<div>${arr}</div>`)
+
+			//Упорядкувати масив імен за зростанням
+			let names = ['Nona', 'John', 'Sara', 'Peter', 'Monica', 'Andrew', 'Niko']
+			names.sort()
+			document.write(`<div>Імена за зростанням: ${names}</div>`)
+
+			//Упорядкувати масив імен за спаданням
+			names.sort((name1, name2) => {
+				if (name1 < name2) return 1
+				if (name1 > name2) return -1
+				return 0
+			})
+			document.write(`<div>Імена за спаданням: ${names}</div>`)
+
+			//Упорядкувати масив імен за зростанням за другою буквою
+			names.sort((name1, name2) => {
+				if (name1[1] < name2[1]) return -1
+				if (name1[1] > name2[1]) return 1
+				return 0
+			})
+			document.write(`<div>Імена за зростанням за другою буквою: ${names}</div>`)
+
+			//Упорядкуватичисла так, щоб з початку йшли парні, потім непарні
+			arr.sort(
+				(num1, num2) => {
+					if (num1 % 2 === 0 && num2 % 2 !== 0) return -1
+					if (num1 % 2 !== 0 && num2 % 2 === 0) return -1
+					return 0
+				}
+			)
+			document.write(`<div>Перелік чисел з початку йшли парні, потім непарні: ${arr}</div>`)
+
+			//Упорядкувати за спаданням довжин імен
+			names.sort(
+				(name1, name2) => {
+					if (name1.length < name2.length) return 1
+					if (name1.length > name2.length) return -1
+					return 0
+				}
+			)
+			document.write(`<div>Перелік імен за спаданням довжин імені: ${names}</div>`)
+			//document.write(`<div>${}</div>`)	
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
 ];
 
 function showQuestion(questionId) {
