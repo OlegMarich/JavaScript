@@ -123,11 +123,134 @@ const questions = [
 	// ========================================================================================================================================
 	{
 		id: 5.2_1,
-		question: "",
+		question: "Заповнити масив нулями, крім першого й останнього елементів, які мають дорівнювати одиниці.",
 		checkFunction: function () {
-			//document.write(`<div>${}</div><div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+			let userNumber = parseInt(prompt('Введіть кількість чисел які треба згенерувати'))
+
+			if (userNumber < 2) {
+				document.write(`<div>Кількість чисел повинна бути щонайменше 2.</div>`)
+			} else {
+				// Створюємо масив заданої довжини і заповнюємо його нулями
+				let num = new Array(userNumber).fill(0)
+				// Задаємо перший і останній елементи рівними 1
+				num[0] = 1
+				num[num.length - 1] = 1
+				document.write(`<div>Масив: ${num.join(', ')}</div>`)
+			}
+			//document.write(`<div></div>`)
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 		}
 	},
+	{
+		id: 5.2_2,
+		question: "Заповнити масив нулями та одиницями, при цьому ці значення чергуються, починаючи з нуля.",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть кількість чисел які треба згенерувати'))
+			if (userNumber < 2) {
+				document.write(`<div>Кількість чисел повинна бути щонайменше 2.</div>`)
+			} else {
+				let num = []
+				for (let i = 0; i < userNumber; i++) {
+					if (i % 2 === 0) {
+						num.push(0)
+					} else {
+						num.push(1)
+					}
+				}
+				document.write(`<div>Масив: ${num.join(', ')}</div>`)
+			}
+			//document.write(`<div></div>`)
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.2_3,
+		question: "Заповнити масив послідовними непарними числами, починаючи з одиниці.",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть кількість чисел які треба згенерувати'))
+			if (userNumber < 2) {
+				document.write(`<div>Кількість чисел повинна бути щонайменше 2.</div>`)
+			} else {
+				let num = []
+				let currentOddNumber = 1
+				for (let i = 0; i < userNumber; i++) {
+					num.push(currentOddNumber)
+					currentOddNumber += 2
+				}
+				document.write(`<div>Масив: ${num.join(', ')}</div>`)
+			}
+			//document.write(`<div></div>`)
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.2_4,
+		question: "Сформувати масив з елементів арифметичної прогресії із заданим першим елементом x і різницею d.",
+		checkFunction: function () {
+			let x = parseInt(prompt('Введіть початкове число'))
+			let d = parseInt(prompt('Введіть необхідну різницю'))
+			let n = parseInt(prompt('Введіть необхідну кількість елементів'))
+			let progress = []
+
+			for (let i = 0; i < n; i++) {
+				progress.push(x + i * d)
+			}
+			document.write(`<div>${progress.join(', ')}</div>`)
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.2_5,
+		question: "Сформувати зростаючий масив із парних чисел.",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть кількість чисел які треба згенерувати'))
+			let num = []
+
+			// for (let i = 0; i < userNumber; i++) {
+			// 	if (i % 2 === 0) num.push(i)
+			// }
+
+			let i = 0
+			while (num.length < userNumber) {
+				if (i % 2 === 0) {
+					num.push(i)
+				}
+				i++
+			}
+			document.write(`<div>${num.join(', ')}</div>`)
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.2_6,
+		question: "Сформувати спадний масив із чисел, які діляться на 3.",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть кількість чисел які треба згенерувати'))
+			let num = []
+
+			// for (let i = 0; i < userNumber; i++) {
+			// 	if (i % 3 === 0) num.push(i)
+			// }
+			let i = userNumber * 3
+			while (num.length < userNumber) {
+				if (i % 3 === 0 && i > 0) {
+					num.push(i)
+				}
+				i--
+			}
+			document.write(`<div>${num.join(', ')}</div>`)
+			//document.write(`<div></div>`)
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	// {
+	// 	id: 5.2_1,
+	// 	question: "",
+	// 	checkFunction: function () {
+	// 		//document.write(`<div></div>`)
+	// 		document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+	// 	}
+	// },
 	// ========================================================================================================================================
 	{
 		id: 5.3_1,
