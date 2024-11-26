@@ -228,9 +228,6 @@ const questions = [
 			let userNumber = parseInt(prompt('Введіть кількість чисел які треба згенерувати'))
 			let num = []
 
-			// for (let i = 0; i < userNumber; i++) {
-			// 	if (i % 3 === 0) num.push(i)
-			// }
 			let i = userNumber * 3
 			while (num.length < userNumber) {
 				if (i % 3 === 0 && i > 0) {
@@ -239,10 +236,103 @@ const questions = [
 				i--
 			}
 			document.write(`<div>${num.join(', ')}</div>`)
-			//document.write(`<div></div>`)
 			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
 		}
 	},
+	{
+		id: 5.2_7,
+		question: "Створити масив із n перших чисел Фібоначчі.",
+		checkFunction: function () {
+			let n = parseInt(prompt('Введіть кількість чисел які треба згенерувати'))
+			let fibonacci = []
+			let f0 = 0, f1 = 1
+
+			for (let i = 0; i < n; i++) {
+				if (i === 0) {
+					fibonacci.push(f0)
+				} else if (i === 1) {
+					fibonacci.push(f1)
+				} else {
+					fibonacci.push(fibonacci[i - 1] + fibonacci[i - 2])
+				}
+			}
+
+			document.write(`<div>${fibonacci.join(', ')}</div>`)
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.2_8,
+		question: "Заповнити масив заданої довжини різними простими числами. Натуральне число, більше за одиницю, називається простим, якщо воно ділиться тільки на себе та на одиницю.",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть кількість чисел які треба згенерувати'))
+			let primeNumbers = []
+			let num = 2
+
+			while (primeNumbers.length < userNumber) {
+				let isPrime = true
+				for (let i = 2; i < Math.sqrt(num); i++) {
+					if (num % i === 0) {
+						isPrime = false
+						break
+					}
+				}
+				if (isPrime) {
+					primeNumbers.push(num)
+				}
+				num++
+			}
+
+			document.write(`<div>Масив натуральних чисел: ${primeNumbers.join(', ')}</div>`)
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.2_9,
+		question: "Створити масив, що складається з трійок однакових елементів, які йдуть підряд.",
+		checkFunction: function () {
+			let userData = prompt('Введіть необхідний текст')
+			let arr = []
+			for (let i = 0; i < 3; i++) {
+				arr.push(userData)
+			}
+			document.write(`<div>${arr.join(', ')}</div>`)
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.2_11,
+		question: "Створити масив, кожен елемент якого дорівнює квадрату свого номера.",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть кількість елементів у масиві'))
+			let arr = []
+
+			for (let i = 0; i < userNumber; i++) {
+				let randomNumber = 1 + Math.floor(Math.random() * 10)
+				arr.push(randomNumber * randomNumber)
+			}
+			document.write(`<div>${arr.join(', ')}</div>`)
+			document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.2_12,
+		question: "Створити масив, на парних місцях у якому стоять одиниці, а на непарних місцях - числа, що дорівнюють залишку від ділення свого номера на 5.",
+		checkFunction: function () {
+			let userNumber = parseInt(prompt('Введіть кількість елементів у масиві'))
+			let arr = []
+		
+			for (let i = 0; i < userNumber; i++) {
+				if (i % 2 === 0) {
+					arr.push(1)
+				} else {
+					arr.push(i % 5)
+				}
+			}
+				document.write(`<div>${arr.join(', ')}</div>`)
+				document.write(`<div><a href="../components/lesson10.html">Повернутися до уроку</a></div>`)
+			}
+		},
 	// {
 	// 	id: 5.2_1,
 	// 	question: "",
