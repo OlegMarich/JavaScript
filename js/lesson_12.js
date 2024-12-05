@@ -19,6 +19,7 @@ const questions = [
 		id: 5.3_2,
 		question: "",
 		checkFunction: function () {
+			//document.write(`<div>Кількість спроб користувача: ${count}</div>`);
 			//document.write(`<div>${}</div><div><a href="../components/lesson9.html">Повернутися до уроку</a></div>`)
 		}
 	},
