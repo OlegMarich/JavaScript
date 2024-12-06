@@ -135,17 +135,55 @@ const questions = [
 				return [evenNumber, positveNumber, numberGr100]
 			}
 
-			let arr = getResult(2, 4, 101)
-			let evenNumber = arr[0]
-			let positiveNumber = arr[1]
-			let numberGr100 = arr[2]
-			
+			//let arr = getResult(2, 4, 101)
+			//let evenNumber = arr[0]
+			//let positiveNumber = arr[1]
+			//let numberGr100 = arr[2]
+			const [evenNumber, positiveNumber, numberGr100] = getResult(2, 4, 101) //швидке рішення
+
 			document.write(`<div>Парне число: ${evenNumber}</div>`)
 			document.write(`<div>Число більше за 0: ${positiveNumber}</div>`)
 			document.write(`<div>Число більше за 100: ${numberGr100}</div>`)
-			//document.write(`<div>Кількість спроб користувача: ${count}</div>`)
-			//document.write(`<div>Кількість спроб користувача: ${count}</div>`)
-		
+			document.write(`<div><a href="../components/lesson11.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.3_5,
+		question: "Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000).",
+		checkFunction: function () {
+			function generateArray(length, min, max) {
+				let arr = []
+				for (let i = 0; i < length; i++) {
+					let num = min + Math.floor(Math.random() * (max - min + 1))
+					arr.push(num)
+				}
+				return arr
+			}
+			//Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+			let prices = generateArray(20, 1, 10000)
+			// let pricesGr1000 = prices.reduce(
+			// 	(prevArr, el, index) => (el > 1000 ? [...prevArr, index + 1] : prevArr),
+			// 	[]
+			// )
+
+			let pricesGr1000 = prices.reduce((prevArr, el, index) => {
+				if (el > 1000) prevArr.push(index)
+				return prevArr
+			}, [])
+
+			//Сформувати список з тих цін, які більші за попередні значення
+			let grThanPrev = prices.filter(
+				(el, index, baseArr) => index > 0 && baseArr[index - 1] < el
+			)
+			//Знайти першу ціну, що більше за 1000
+			let firstNumGr1000 = prices.find(price => price > 1000)
+			if (firstNumGr1000)
+				document.write(`<div>Перша ціна більша за 1000: ${firstNumGr1000}</div>`)
+			else
+				document.write(`<div>Нема такої ціни</div>`)
+			document.write(`<div>Вартість цінних паперів: ${prices.join(', ')}</div>`)
+			document.write(`<div>Ціни більші за 1000: ${pricesGr1000.join(', ')}</div>`)
+			document.write(`<div>Ціни більші за попередні значення: ${grThanPrev.join(', ')}</div>`)
 			document.write(`<div><a href="../components/lesson11.html">Повернутися до уроку</a></div>`)
 		}
 	},
