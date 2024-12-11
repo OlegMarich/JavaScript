@@ -134,7 +134,6 @@ const questions = [
 				let numberGr100 = getNumberGr100(n1, n2, n3)
 				return [evenNumber, positveNumber, numberGr100]
 			}
-
 			//let arr = getResult(2, 4, 101)
 			//let evenNumber = arr[0]
 			//let positiveNumber = arr[1]
