@@ -381,7 +381,6 @@ const questions = [
 				visitorPerYear.push(visitorPerMonth)
 			}
 
-			//  Перетворюємо таблицю у HTML для відображення
 			const visitors = visitorPerYear.map(row => `[${row.join(', ')}]`).join('<br>')
 
 			// Вивід кількості 
@@ -396,16 +395,53 @@ const questions = [
 					sum1 += visitorPerYear[monthNum][dayNum]
 				}
 			}
+			//Варіант 2
+			let sum2 = 0
+			for (const monthVisitors of visitorPerYear) {
+				for (const dayVisitors of monthVisitors) {
+					sum2 += dayVisitors
+				}
+			}
 
-			document.write(`<div>Загальна кількість відвідувачів: <strong> ${sum1}</strong> </div>`)
+			//Варіант 3
+			let sum3 = visitorPerYear.reduce(
+				(prevMonthSum, month) => prevMonthSum + month.reduce((prevSum, day) => prevSum + day),
+				0
+			)
+
 			//2) Кількість відвідувача за літо
+			let summerSum = 0
+			for (let monthNum = 5; monthNum < 8; monthNum++) {
+				for (let dayNum = 0; dayNum < visitorPerYear[monthNum].length; dayNum++) {
+					summerSum += visitorPerYear[monthNum][dayNum]
+				}
+			}
+
 			//3) Кількість відвідувачів за друге півріччя
+			let secondHalfOfYear = 0
+			for (let monthNum = 6; monthNum < visitorPerYear.length; monthNum++) {
+				for (let dayNum = 0; dayNum < visitorPerYear[monthNum].length; dayNum++) {
+					secondHalfOfYear+=visitorPerYear[monthNum][dayNum]
+				}
+			}
 
-
-
-
-			//document.write(`<div> <strong>${}</strong></div>`);
+			document.write(`<div>Загальна кількість відвідувачів:</div>`)
+			document.write(`<div>Варіант 1: <strong> ${sum1}</strong> </div>`)
+			document.write(`<div>Варіант 2: <strong> ${sum2}</strong> </div>`)
+			document.write(`<div>Варіант 3: <strong> ${sum3}</strong> </div>`)
+			document.write(`<div>Кількість відвідувачів за літо: <strong> ${summerSum}</strong> </div>`)
+			document.write(`<div>Кількість відвідувачів за за друге півріччя: <strong> ${secondHalfOfYear}</strong> </div>`)
 			document.write(`<div><a href="../components/lesson11.html">Повернутися до уроку</a></div>`)
+		}
+	},
+	{
+		id: 5.3_12,
+		question: "",
+		checkFunction: function () {
+
+
+	document.write(`<div> <strong>${positiveCount}</strong></div>`);
+	document.write(`<div>${}</div><div><a href="../components/lesson11.html">Повернутися до уроку</a></div>`)
 		}
 	},
 	// {
