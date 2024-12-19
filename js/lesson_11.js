@@ -439,7 +439,6 @@ const questions = [
 		question: "",
 		checkFunction: function () {
 
-
 	document.write(`<div> <strong>${positiveCount}</strong></div>`);
 	document.write(`<div>${}</div><div><a href="../components/lesson11.html">Повернутися до уроку</a></div>`)
 		}
