@@ -402,7 +402,6 @@ const questions = [
 					sum2 += dayVisitors
 				}
 			}
-
 			//Варіант 3
 			let sum3 = visitorPerYear.reduce(
 				(prevMonthSum, month) => prevMonthSum + month.reduce((prevSum, day) => prevSum + day),
